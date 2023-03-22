@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,32 +22,18 @@ import lombok.ToString;
 @ToString
 public class Program {
     private int programId;
-    private String programName;
+    private int programName;
     private String shortDes;
     private String detailDes;
+    private double raisedAmount;
     private double goalAmount;
-    private String startDate;
-    private String endDate;
-    private Destination destination;
-    private String scheStartDate;
-    private String scheEndDate;
+    private Date startDate;
+    private Date endDate;
+    private String city;
+    private String province;
+    private String address;
+    private Date scheStartDate;
+    private Date scheEndDate;
     private int userId;
-    private List<ProgramImage> programImgs;
-    
-    @Getter
-    @Setter
-    @ToString
-    public class Destination {
-        private int id;
-        private String city;
-        private String province;
-        private String address;
-        
-        public Destination(int id, String city, String province, String address) {
-            this.id = id;
-            this.city = city;
-            this.province = province;
-            this.address = address;
-        }
-    }
+    private List<String> programImg;
 }
