@@ -10,5 +10,8 @@ package Program;
  * @author toten
  */
 public class ProgramDAO {
-
+    
+    public void addProgram(Program program) {
+        
+    }
 }
