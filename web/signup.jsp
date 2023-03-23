@@ -94,7 +94,9 @@
                         </div>
                         <div class="donate-text">
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                                Please help those in need by donating to charity. 
+                                Your generosity can make a huge difference in someone's life. 
+                                Together, we can create positive change and make the world a better place.
                             </p>
                         </div>
                     </div>

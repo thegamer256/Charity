@@ -5,10 +5,6 @@
  */
 package User;
 
-/**
- *
- * @author toten
- */
 public class Account {
 
     private int accountId;
