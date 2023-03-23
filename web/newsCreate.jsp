@@ -5,7 +5,7 @@
     <%@include file="/includes/header.jsp"%>
     <head>
         <title>Program Register</title>
-        <link href="css/program.css" type="text/css" rel="stylesheet">
+        <link href="css/news.css" type="text/css" rel="stylesheet">
     </head>
     <body>
         <%@include file="/includes/navbar.jsp"%>
