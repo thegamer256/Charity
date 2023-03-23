@@ -5,10 +5,6 @@
  */
 package User;
 
-/**
- *
- * @author toten
- */
 public class Donor extends Account {
     private int donorId;
     private String email;
@@ -158,6 +154,4 @@ public Donor(int accountId, String username, String password, int role, String s
     public String toString() {
         return "Donor{" + "donorId=" + donorId + ", email=" + email + ", city=" + city + ", province=" + province + ", address=" + address + ", name=" + name + ", avatar=" + avatar + ", phoneNumber=" + phoneNumber + ", dob=" + dob + ", bank_account=" + bank_account + '}';
     }
-    
-    
 }
