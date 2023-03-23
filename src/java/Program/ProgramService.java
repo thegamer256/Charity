@@ -9,10 +9,6 @@ import java.util.List;
 import javax.servlet.http.Part;
 import shared.FileUploader;
 
-/**
- *
- * @author toten
- */
 public class ProgramService {
     private ProgramDAO dao = new ProgramDAO();
     

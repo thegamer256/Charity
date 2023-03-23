@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author toten
+ * @author acer
  */
 public class ContactDAO {
     public void createMessage(Contact contact) {

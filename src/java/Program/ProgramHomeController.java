@@ -12,10 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author toten
- */
+
 @WebServlet(name = "ProgramHomeController", urlPatterns = {"/home"})
 public class ProgramHomeController extends HttpServlet {
     
