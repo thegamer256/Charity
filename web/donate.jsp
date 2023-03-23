@@ -1,3 +1,9 @@
+<%-- 
+    Document   : successPage.jsp
+    Created on : Mar 22, 2023, 10:32:05 AM
+    Author     : LE ANH TUAN
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

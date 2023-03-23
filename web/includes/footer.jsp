@@ -1,3 +1,8 @@
+<%-- 
+    Document   : successPage.jsp
+    Created on : Mar 21, 2023, 8:12:54 AM
+    Author     : LE ANH TUAN
+--%>
 
     <!-- Footer Start -->
     <div class="footer">

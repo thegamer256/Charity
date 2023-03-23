@@ -1,3 +1,8 @@
+<%-- 
+    Document   : successPage.jsp
+    Created on : Mar 21, 2023, 8:12:54 AM
+    Author     : LE ANH TUAN
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>

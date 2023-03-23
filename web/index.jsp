@@ -1,3 +1,9 @@
+<%-- 
+    Document   : successPage.jsp
+    Created on : Mar 21, 2023, 9:12:54 AM
+    Author     : LE ANH TUAN
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@include file="/includes/header.jsp"%>
@@ -38,7 +44,7 @@
                     </p>
                     <div class="carousel-btn">
                         <a class="btn btn-custom" href="">Donate Now</a>
-                        
+
                     </div>
                 </div>
             </div>
@@ -110,26 +116,29 @@
 
                     <div class="tab-content">
                         <div id="tab-content-1" class="container tab-pane active">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae pellentesque turpis.
-                            Donec in hendrerit dui, vel blandit massa. Ut vestibulum suscipit cursus. Cras quis
-                            porta nulla, ut placerat risus. Aliquam nec magna eget velit luctus dictum. Phasellus et
-                            felis sed purus tristique dignissim. Morbi sit amet leo at purus accumsan pellentesque.
-                            Vivamus fermentum nisi vel dapibus blandit. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit.
+                            FantasticV Charity is a non-profit charity organization that accepts online monetary 
+                            donations to support their mission of providing food, shelter, and healthcare to disadvantaged 
+                            communities in Vietnam.
+                            Your contribution will make a difference in the lives of millions of people.
                         </div>
                         <div id="tab-content-2" class="container tab-pane fade">
-                            Sed tincidunt, magna ut vehicula volutpat, turpis diam condimentum justo, posuere congue
-                            turpis massa in mi. Proin ornare at massa at fermentum. Nunc aliquet sed nisi iaculis
-                            ornare. Nam semper tortor eget est egestas, eu sagittis nunc sodales. Interdum et
-                            malesuada fames ac ante ipsum primis in faucibus. Praesent bibendum sapien sed purus
-                            molestie malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            The mission of money donating charity organizations is to provide assistance and support to 
+                            those in need. These organizations collect funds from donors and distribute them to various 
+                            charitable causes such as poverty alleviation, education, healthcare, disaster relief, and more. 
+                            By donating money to our organization, individuals can help make a positive impact on the 
+                            world and improve the lives of others. The goal of these organizations is to maximize the 
+                            effectiveness of their donations by carefully selecting and vetting the causes they support 
+                            to ensure that the funds are used in the most impactful and efficient way possible.
                         </div>
                         <div id="tab-content-3" class="container tab-pane fade">
-                            Aliquam dolor odio, mollis sed feugiat sit amet, feugiat ut sapien. Nunc eu dignissim
-                            lorem. Suspendisse at hendrerit enim. Interdum et malesuada fames ac ante ipsum primis
-                            in faucibus. Sed condimentum semper turpis vel facilisis. Nunc vel faucibus orci. Mauris
-                            ut mauris rhoncus, efficitur nisi at, venenatis quam. Praesent egestas pretium enim sit
-                            amet finibus. Curabitur at erat molestie, tincidunt lorem eget, consequat ligula.
+                            The vision of our organization is to create a better world for everyone. Such organizations 
+                            are driven by a passion for helping people and making a positive impact on society. 
+                            They aim to address various social, economic, and environmental issues, such as poverty, 
+                            hunger, education, healthcare, and climate change. 
+                            Their mission is to provide support and resources to individuals and communities in need, 
+                            empowering them to live fulfilling and dignified lives. Non-profit charity organizations 
+                            rely on the generosity of donors, volunteers, and partners to achieve their vision and make 
+                            a meaningful difference in Vietnam.
                         </div>
                     </div>
                 </div>
@@ -224,7 +233,7 @@
 <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="facts-item">
                     <i class="flaticon-home"></i>
                     <div class="facts-text">
@@ -233,16 +242,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="facts-item">
-                    <i class="flaticon-charity"></i>
-                    <div class="facts-text">
-                        <h3 class="facts-plus" data-toggle="counter-up">400</h3>
-                        <p>Volunteers</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
+           
+            <div class="col-lg-4 col-md-6">
                 <div class="facts-item">
                     <i class="flaticon-kindness"></i>
                     <div class="facts-text">
@@ -251,7 +252,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="facts-item">
                     <i class="flaticon-donation"></i>
                     <div class="facts-text">
@@ -270,8 +271,8 @@
 <div class="causes">
     <div class="container">
         <div class="section-header text-center">
-            <p>Popular Causes</p>
-            <h2>Let's know about charity causes around the world</h2>
+            <p>Our Program</p>
+            <h2>Let's know about charity program in Vietnam</h2>
         </div>
         <div class="owl-carousel causes-carousel">
             <c:forEach var="item" items="${listPrograms}">
