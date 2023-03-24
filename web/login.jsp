@@ -21,7 +21,7 @@
     <!-- Page Header End -->
 
 
-    <!-- Donate Start -->
+    <!-- Log In Start -->
     <div class="container">
         <div class="donate" data-parallax="scroll" data-image-src="img/donate.jpg">
             <div class="row align-items-center">
@@ -67,6 +67,6 @@
             </div>
         </div>
     </div>
-    <!-- Donate End -->
+    <!-- Log In End -->
 
     <%@include file="/includes/footer.jsp"%>

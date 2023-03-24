@@ -1042,7 +1042,7 @@ a:focus {
 }
 
 .facts .facts-text h3.facts-dollar::after {
-    content: "\f155";
+    content: "đ";
     right: -18px;
 }
 
