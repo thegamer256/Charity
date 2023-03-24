@@ -247,7 +247,7 @@
 
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
+<!--                                                            <tbody>
                                                             <c:choose>
                                                                 <c:when test="${not empty programs}">
                                                                     <c:set var = "programNo" value="${1}" />
@@ -291,12 +291,7 @@
                                                                     <tr>There is no program yet</tr>
                                                                 </c:otherwise>
                                                             </c:choose>
-
-
-
-
-
-                                                            </tbody>
+                                                            </tbody>-->
                                                         </table>
                                                     </div>
                                                 </div>
