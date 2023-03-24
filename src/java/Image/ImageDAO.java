@@ -17,6 +17,7 @@ import java.util.logging.Logger;
  *
  * @author DINH TRUNG
  */
+
 public class ImageDAO {
     
     public void addImage(Image image, String tableName) {
@@ -41,4 +42,4 @@ public class ImageDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   }
+}

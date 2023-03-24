@@ -247,7 +247,7 @@
                 <div class="facts-item">
                     <i class="flaticon-kindness"></i>
                     <div class="facts-text">
-                        <h3 class="facts-dollar" data-toggle="counter-up">${totalGoal}</h3>
+                        <h3 class="facts-dollar" data-toggle="counter-up">${totalGoal} "đ"</h3>
                         <p>Our Goal</p>
                     </div>
                 </div>

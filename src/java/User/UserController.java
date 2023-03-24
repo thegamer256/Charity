@@ -7,6 +7,7 @@ package User;
 
 import Donate.Donate;
 import Donate.DonateService;
+import Security.PasswordEncrypt;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,6 +21,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import shared.OTPGenerate;
+import shared.SendMail;
 
 /**
  *
@@ -60,8 +63,7 @@ public class UserController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         int userId = Integer.parseInt(req.getParameter("userId"));
         List<Donate> donateHistory = donateService.getDonateHistoryByUserId(userId);
@@ -89,14 +91,15 @@ public class UserController extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param req servlet request
-     * @param resp servlet response
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String action = req.getParameter("action");
 
@@ -114,6 +117,7 @@ public class UserController extends HttpServlet {
                 changePassword(req, resp);
                 break;
         }
+
     }
 
     private void updateBasicInfo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -156,11 +160,21 @@ public class UserController extends HttpServlet {
         String bankAccount = req.getParameter("bank_account");
         String userId = req.getParameter("userId");
 
-
+        String otp = OTPGenerate.generateOTP();
+        session.setAttribute("emailChangeConfirmOtp", otp);
 
         req.setAttribute("userId", userId);
         req.setAttribute("email", email);
         req.setAttribute("bankAccount", bankAccount);
+
+        boolean sendMail = SendMail.sendConfirmEmail("confirm", email, "Confirmation", "Confirm that you have changed your private information", "Here is your OTP", otp);
+
+        if (sendMail == false) {
+            req.getRequestDispatcher("failedPage.jsp").forward(req, resp);
+        } else {
+            req.getRequestDispatcher("confirmEmail.jsp").forward(req, resp);
+
+        }
 
     }
 
@@ -206,17 +220,12 @@ public class UserController extends HttpServlet {
             req.getRequestDispatcher("user?userId=" + userId).forward(req, resp);
         }
 
+        String saltValue = PasswordEncrypt.getSaltvalue(20);
+        String encryptedPassword = PasswordEncrypt.generateSecurePassword(password, saltValue);
+
+        userService.changePassword(encryptedPassword, saltValue, userId);
+
         req.getRequestDispatcher("successPage.jsp").forward(req, resp);
     }
-    
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

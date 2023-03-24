@@ -56,12 +56,11 @@ public class UserLogOutController extends HttpServlet {
                     System.out.println("deleted password");
                 }
             }
-            
-            if(urlHistory==null) {
+
+            if (urlHistory == null) {
                 urlHistory = "home";
             }
-            
-         
+
             System.out.println("Log out here");
             response.sendRedirect(urlHistory);
 

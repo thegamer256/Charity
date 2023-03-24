@@ -5,7 +5,7 @@
  */
 package User;
 
-//import Security.PasswordEncrypt;
+import Security.PasswordEncrypt;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -163,6 +163,12 @@ public class UserSignUpController extends HttpServlet {
         Donor donorSignUp = new Donor(0, username, password, 3, null, email, city, province, address, name, avatar, phoneNumber, dob, bankAccount);
 
         try {
+
+//                Encrypt password
+            String saltValue = PasswordEncrypt.getSaltvalue(20);
+            String encryptedPassword = PasswordEncrypt.generateSecurePassword(accountSignUp.getPassword(), saltValue);
+            accountSignUp.setPassword(encryptedPassword);
+            accountSignUp.setSalt(saltValue);
 
 //                Sign up account
             int accountId = userDAO.signUpAccount(accountSignUp);
