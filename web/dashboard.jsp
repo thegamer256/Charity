@@ -104,7 +104,7 @@
                                                 <div class="row align-items-center m-b-25">
                                                     <div class="col">
                                                         <h6 class="m-b-5 text-white">Total donate today</h6>
-                                                        <h3 class="m-b-0 text-white">$${totalToday}</h3>
+                                                        <h3 class="m-b-0 text-white"></h3>/**/
                                                     </div>
                                                     <div class="col-auto">
                                                         <i class="fas fa-money-bill-alt text-c-red f-18"></i>
@@ -136,7 +136,7 @@
                                                 <div class="row align-items-center m-b-25">
                                                     <div class="col">
                                                         <h6 class="m-b-5 text-white">Total donate</h6>
-                                                        <h3 class="m-b-0 text-white">$${totalAll}</h3>
+                                                        <h3 class="m-b-0 text-white"></h3>/**/
                                                     </div>
                                                     <div class="col-auto">
                                                         <i class="fas fa-dollar-sign text-c-green f-18"></i>
@@ -152,7 +152,7 @@
                                                 <div class="row align-items-center m-b-25">
                                                     <div class="col">
                                                         <h6 class="m-b-5 text-white">Number of program in process</h6>
-                                                        <h3 class="m-b-0 text-white">${avaiablePrograms}</h3>
+                                                        <h3 class="m-b-0 text-white"></h3>/**/
                                                     </div>
                                                     <div class="col-auto">
                                                         <i class="fas fa-tags text-c-yellow f-18"></i>
@@ -175,16 +175,16 @@
 
                                                     </div>
                                                     <div class="col text-right">
-                                                        <h3>${totalCalledAmountClose}$</h3>
+                                                        <h3></h3>/**/
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-block">
                                                 <div class="row align-items-center justify-content-center card-active">
                                                     <div class="col-12">
-                                                        <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Target:</span>${totalActualAmountClose}$</h6>
+                                                        <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Target:</span></h6>/**/
                                                         <div class="progress">
-                                                            <div class="progress-bar progress-c-blue" role="progressbar" style="${(totalCalledAmountClose/totalActualAmountClose) * 100}%;height:6px;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            <div class="progress-bar progress-c-blue" role="progressbar"  aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>/**/
                                                         </div>
                                                     </div>
                                                 </div>
@@ -203,7 +203,7 @@
 
                                                     </div>
                                                     <div class="col text-right">
-                                                        <h3>${totalCalledAmountOpen}$</h3>
+                                                        <h3></h3>/**/
                                                     </div>
                                                 </div>
                                             </div>
@@ -211,9 +211,9 @@
                                                 <div class="row align-items-center justify-content-center card-active">
 
                                                     <div class="col-12">
-                                                        <h6 class="text-center  m-b-10"><span class="text-muted m-r-5">Target:</span>${totalActualAmountOpen}$</h6>
+                                                        <h6 class="text-center  m-b-10"><span class="text-muted m-r-5">Target:</span></h6>/**/
                                                         <div class="progress">
-                                                            <div class="progress-bar progress-c-green" role="progressbar" style="width:${totalActualAmountOpen == 0 ? 0 : (totalCalledAmountOpen/totalActualAmountOpen)*100}%;height:6px;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            <div class="progress-bar progress-c-green" role="progressbar"  aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>/**/
                                                         </div>
                                                     </div>
                                                 </div>
@@ -247,51 +247,7 @@
 
                                                                 </tr>
                                                             </thead>
-<!--                                                            <tbody>
-                                                            <c:choose>
-                                                                <c:when test="${not empty programs}">
-                                                                    <c:set var = "programNo" value="${1}" />
-                                                                    <c:forEach var="item" items="${programs}">
-                                                                        <tr>
-                                                                            <td>${programNo}</td>
-                                                                            <td>${item.programName}</td>
-                                                                            <td>${item.destination.city}</td>
-                                                                            <td>${item.destination.province}</td>
-                                                                            <td>${item.destination.address} </td>
-                                                                            <td>${item.startDate} - ${item.endDate}</td>
-                                                                            <td>${item.goalAmount}$</td>
-                                                                            <td>${item.raisedAmount}$</td>
-                                                                            <td>${(item.raisedAmount / item.goalAmount) * 100}%
-                                                                                <div class="progress mt-1" style="height:4px;">
-                                                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: ${(item.raisedAmount / item.goalAmount) * 100}%;" aria-valuenow="${(item.raisedAmount / item.goalAmount) * 100}" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td style="padding-top: 0.6em">
-                                                                                <div class="mt-1" >
-                                                                                    <c:if test="${item.isClosed == 'FALSE'}">
-                                                                                        <form method="POST" action="/OJT_Mock/program?action=close">
-                                                                                            <input  type="hidden" class="form-control"  name="programId"  value="${item.programId}" >
-                                                                                            <button class="btn btn-danger btn-sm text-white m-0" type="submit">CLOSE</button>
-                                                                                        </form>
-                                                                                    </c:if>
-                                                                                    <c:if test="${item.isClosed == 'TRUE'}">
-                                                                                        <form method="POST" action="/OJT_Mock/program?action=open">
-                                                                                            <input  type="hidden" class="form-control"  name="programId"  value="${item.programId}" >
-                                                                                            <button class="btn btn-success btn-sm text-white m-0" type="submit">OPEN</button>
-                                                                                        </form>
-                                                                                    </c:if>
-
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <c:set var = "donateNo" value="${donateNo+1}" />
-                                                                    </c:forEach>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <tr>There is no program yet</tr>
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                            </tbody>-->
+                                                           /**/
                                                         </table>
                                                     </div>
                                                 </div>
@@ -325,33 +281,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-
-                                                            <c:choose>
-                                                                <c:when test="${not empty donations}">
-                                                                    <c:set var = "donateNo" value="${1}" />
-                                                                    <c:forEach var="item" items="${donations}">
-                                                                        <tr>
-                                                                            <td>${donateNo}</td>
-                                                                            <td>${item.name}</td>
-                                                                            <td>${item.amount}$</td>
-                                                                            <td>${item.programName}</td>
-                                                                            <td style="text-align: center">${item.message}</td>
-                                                                            <td style="text-align: center">${item.donate_date}</td>
-                                                                        </tr>
-
-                                                                        <c:set var = "donateNo" value="${donateNo+1}" />
-                                                                    </c:forEach>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <tr>
-                                                                        <td colspan="5">Number is less than or equal to 10.</td>
-                                                                    </tr>
-                                                                </c:otherwise>
-                                                            </c:choose>
-
-
-
-
+                                                            /**/
                                                             </tbody>
                                                         </table>
                                                     </div>
