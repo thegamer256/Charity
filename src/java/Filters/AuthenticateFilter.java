@@ -6,6 +6,8 @@ package Filters;
 
 
 
+import User.Account;
+import User.UserDAO;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -36,10 +38,10 @@ public class AuthenticateFilter implements Filter{
     }  
     
     @Override
-    public void doFilter(ServletRequest req, ServletResponse resp,  
+    public void doFilter(ServletRequest request, ServletResponse response,  
         FilterChain chain) throws IOException, ServletException {  
         
-     HttpServletRequest httpRequest = (HttpServletRequest) req;
+     HttpServletRequest httpRequest = (HttpServletRequest) request;
      
         HttpSession session = httpRequest.getSession(false);
         
@@ -56,8 +58,15 @@ public class AuthenticateFilter implements Filter{
             }
         }
         
+        if (username != null) {
+            Account user = new UserDAO().checkExistedUsername(username);
+
+            session = httpRequest.getSession(true); // create a new session
+            session.setAttribute("user", user);
+
+        }
        
-        chain.doFilter(req, resp);
+        chain.doFilter(request, response);
         
     }  
     
