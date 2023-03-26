@@ -57,8 +57,9 @@ public class ProgramDAO {
 
             program.getProgramImgs().stream().forEach(programImg -> {
                 programImg.setProgramId(generatedKey);
-                imageDao.addImage(programImg, "program_img");
             });
+            
+            imageDao.addImage(program.getProgramImgs(), "program_img");
             
             // insert destination into db
             Destination des = program.getDestination();
@@ -78,4 +79,4 @@ public class ProgramDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
-}
+   }
