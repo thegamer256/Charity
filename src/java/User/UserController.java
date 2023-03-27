@@ -35,7 +35,7 @@ import shared.SendMail;
         maxRequestSize = 1024 * 1024 * 100 // 100 MB
 )
 public class UserController extends HttpServlet {
-
+    
     private final DonateService donateService = new DonateService();
     private final UserService userService = new UserService();
 
@@ -100,7 +100,6 @@ public class UserController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String action = req.getParameter("action");
 
         switch (action) {
@@ -117,7 +116,6 @@ public class UserController extends HttpServlet {
                 changePassword(req, resp);
                 break;
         }
-
     }
 
     private void updateBasicInfo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -227,5 +225,4 @@ public class UserController extends HttpServlet {
 
         req.getRequestDispatcher("successPage.jsp").forward(req, resp);
     }
-
 }

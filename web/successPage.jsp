@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Success Page</title>
     </head>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');

@@ -63,6 +63,8 @@ public class UserLoginController extends HttpServlet {
         if (username != null) {
             Account account = new UserDAO().checkExistedUsername(username);
             
+            
+            
             if(account!=null) {
                 request.getSession().setAttribute("account", account);
                 String urlHistory = (String) session.getAttribute("urlHistory");
