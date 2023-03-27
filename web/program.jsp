@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -28,8 +29,8 @@
                     <input 
                         type="text" 
                         class="form-control" 
-                        id="detailDescription"
-                        aria-describedby="detailDescription" 
+                        id="shortDescription"
+                        aria-describedby="shortDescription" 
                         placeholder="Enter Short Description"
                         name="shortDes"
                         required
@@ -67,7 +68,7 @@
                         <input 
                             type="date" 
                             class="form-control" 
-                            id="goalAmount"
+                            id="startDate"
                             aria-describedby="startDate" 
                             placeholder="Enter Start Date"
                             name="startDate"
@@ -131,7 +132,7 @@
                          <input 
                              type="date" 
                              class="form-control" 
-                             id="scheduleStartDate"
+                             id="scheStartDate"
                              aria-describedby="scheStartDate" 
                              placeholder="Enter Start Date"
                              name="scheStartDate"
@@ -143,7 +144,7 @@
                          <input 
                              type="date" 
                              class="form-control" 
-                             id="endDate"
+                             id="scheEndDate"
                              aria-describedby="scheEndDate" 
                              placeholder="Enter End Date"
                              name="scheEndDate"
@@ -175,6 +176,10 @@
     <script>
         const programImgInputEl = document.getElementById("programImgs");
         const imagePreviewSectionEl = document.getElementById("image-preview-section");
+        const startDateEl = document.getElementById("startDate");
+        const endDateEl = document.getElementById("endDate");
+        const scheStartDateEl = document.getElementById("scheStartDate");
+        const scheEndDateEl = document.getElementById("scheEndDate");
         
         programImgInputEl.onchange = (e) => {
             const { files } = e.target;
@@ -190,6 +195,7 @@
             }  
         }
         
+        console.log(startDateEl, endDateEl, scheStartDateEl, scheEndDateEl);
         
     </script>
 </html>

@@ -5,6 +5,7 @@
  */
 package Contact;
 
+import User.Account;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,7 +64,27 @@ public class ContactController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      
+        HttpSession session = req.getSession(false);
+        String title = req.getParameter("title");
+        String message = req.getParameter("message");
+        Account account = (Account) session.getAttribute("user");
+
+        try {
+            Contact contact = new Contact(0, title, message, account.getAccountId());
+
+            service.createMessage(contact);
+
+            session = req.getSession(true);
+            session.setAttribute("urlHistory", "contact");
+            
+            req.setAttribute("successMessage", "Send message successfully!!");
+            
+            req.getRequestDispatcher("contact.jsp").forward(req, resp);
+        } catch (Exception e) {
+            System.out.println(e);
+            req.setAttribute("failedMessage", "Send message failed!!");
+            req.getRequestDispatcher("contact.jsp").forward(req, resp);
+        }
 
     }
 
