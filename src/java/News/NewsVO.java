@@ -7,10 +7,7 @@ package News;
 
 import java.util.List;
 
-/**
- *
- * @author toten
- */
+
 public class NewsVO extends News {
     
     private String backGroundImg;

@@ -4,20 +4,14 @@
  */
 package Investor;
 
-/**
- *
- * @author huynh
- */
+
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author toten
- */
+
 public class InvestorService {
     private final InvestorDAO dao = new InvestorDAO();
     

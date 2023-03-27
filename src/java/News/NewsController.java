@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author toten
- */
+
 @WebServlet(name = "NewsController", urlPatterns = {"/news"})
 public class NewsController extends HttpServlet {
 

@@ -20,10 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-/**
- *
- * @author toten
- */
+
 @WebServlet(name = "NewsCreateController", urlPatterns = {"/news-manage"})
 @MultipartConfig(
     fileSizeThreshold = 1024 * 1024 * 10, // 10 MB
