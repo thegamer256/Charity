@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author LE ANH TUAN
+ * @author huynh
  */
 public class DashBoardDAO {
     public double getTotal(String totalCase) {

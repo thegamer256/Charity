@@ -7,7 +7,7 @@ package Dashboard;
 
 /**
  *
- * @author LE ANH TUAN
+ * @author huynh
  */
 public class DashBoardService {
     DashBoardDAO dao = new DashBoardDAO();
