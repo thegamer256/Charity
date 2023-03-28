@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Operator;
 
 import Image.ImageDAO;
@@ -254,7 +250,9 @@ public class OperatorDAO {
         OperatorDAO dao = new OperatorDAO();
         List<Operator> operators = new ArrayList<>();
 
-
+//        operators.add(new Operator(0, 2143, "2023-11-11", "Desadwjoawidj awijd aow", 2000, null, null));
+//        operators.add(new Operator(0, 2143, "2023-11-12", "Desadwjoawidj awijd aow", 2000, null, null));
+//        operators.add(new Operator(0, 2143, "2023-11-13", "Desadwjoawidj awijd aow", 2000, null, null));
         String[] id = {"123", "125", "126"};
 
         System.out.println(dao.getQueryNotIn(id));

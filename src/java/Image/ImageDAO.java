@@ -3,12 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Image;
+import Operator.OperatorImage;
 import Program.ProgramImage;
+import Schedule.ScheduleImage;
 import User.UserDAO;
 import context.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,11 +23,143 @@ import java.util.logging.Logger;
 public class ImageDAO {
     
     public void addImage(List<? extends Image> images, String tableName) {
-        if (tableName.equals("program_img")) {
-            addProgramImage((List<ProgramImage>) images);
+        switch (tableName) {
+            case "program_img":
+                addProgramImage((List<ProgramImage>) images);
+                break;
+            case "activies_img":
+                addActivitiesImage((List<OperatorImage>) images);
+                break;
+            case "bill_img":
+                addBillsImage((List<OperatorImage>) images);
+                break;
+        }
+    }    
+    public void addActivitiesImage(List<OperatorImage> images) {
+        Connection conn;
+        PreparedStatement ps;
+        try {
+            String sql = "insert into operator_activities_img values (?, ?)";
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql);
+
+            for (OperatorImage image : images) {
+                ps.setInt(1, image.getOperatorId());
+                ps.setString(2, image.getPath());
+                ps.addBatch();
+            }
+
+            ps.executeBatch();
+            ps.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void addBillsImage(List<OperatorImage> images) {
+        Connection conn;
+        PreparedStatement ps;
+        try {
+            String sql = "insert into operator_bill_img values (?, ?)";
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql);
+
+            for (OperatorImage image : images) {
+                ps.setInt(1, image.getOperatorId());
+                ps.setString(2, image.getPath());
+                ps.addBatch();
+            }
+
+            ps.executeBatch();
+            ps.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+      public List<? extends Image> getImages(int id, String table) {
+
+        switch (table) {
+            case "activies_img":
+                return getActivitiesImage(id);
+            case "bill_img":
+                return getBillsImage(id);
+            default:
+                throw new Error("Table not found");
+        }
+
+    }
+    public static List<OperatorImage> getActivitiesImage(int operatorId) {
+        Connection conn;
+        PreparedStatement ps;
+        ResultSet rs;
+        List<OperatorImage> images = new ArrayList();
+
+        try {
+            String query = "select * from operator_activities_img where operator_id=?";
+            conn = new DBContext().getConnection();
+
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, operatorId);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("operator_actv_img_id");
+                String path = rs.getString("operator_actv_img_path");
+                OperatorImage image = new OperatorImage(id, operatorId, path);
+                images.add(image);
+            }
+
+            // close connection after execute query
+            ps.close();
+            conn.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return images;
+    }
     
+     public static List<OperatorImage> getBillsImage(int operatorId) {
+        Connection conn;
+        PreparedStatement ps;
+        ResultSet rs;
+        List<OperatorImage> images = new ArrayList();
+
+        try {
+            String query = "select * from operator_bill_img where operator_id=?";
+            conn = new DBContext().getConnection();
+
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, operatorId);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("operator_bill_img_id");
+                String path = rs.getString("operator_bill_img_path");
+                OperatorImage image = new OperatorImage(id, operatorId, path);
+                images.add(image);
+            }
+
+            // close connection after execute query
+            ps.close();
+            conn.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return images;
+    }
+      public void deleteImgByOperatorIds(String[] id) {
+         
+     }
+
+    public static void main(String[] args) {
+        ImageDAO dao = new ImageDAO();
+        System.out.println(dao.getImages(1007, "activies_img"));
+    }
     public void addProgramImage(List<ProgramImage> images) {
         try {
             String sql = "insert into program_img(program_id, program_img_path) values(?, ?)";
