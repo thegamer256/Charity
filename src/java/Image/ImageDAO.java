@@ -30,11 +30,67 @@ public class ImageDAO {
             case "activies_img":
                 addActivitiesImage((List<OperatorImage>) images);
                 break;
+            case "schedule_img":
+                addScheduleImage((List<ScheduleImage>) images);
+                break;
             case "bill_img":
                 addBillsImage((List<OperatorImage>) images);
                 break;
         }
     }    
+    
+     public void updateScheduleImage(List<ScheduleImage> images) {
+        
+        deleteScheduleImage(images);
+        
+        addScheduleImage(images);
+    }
+     
+     public void addScheduleImage(List<ScheduleImage> images) {
+        try {
+            String sql = "insert into schedule_img(schedule_id, schedule_img_path) values(?, ?)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            // TOBE: Implement update based on batch size
+            int BATCH_SIZE = 200;
+
+            for (ScheduleImage image : images) {
+                ps.setInt(1, image.getScheduleId());
+                ps.setString(2, image.getPath());
+                ps.addBatch();
+            }
+
+            ps.executeBatch();
+            ps.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
+    public void deleteScheduleImage(int programId) {
+        try {
+            String sql = "delete from schedule_img where schedule_id in (" +
+                            "select schedule_id from schedule where program_id = ? )";
+            
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            
+            ps.setInt(1, programId);
+            
+            ps.executeUpdate();
+            ps.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void addActivitiesImage(List<OperatorImage> images) {
         Connection conn;
         PreparedStatement ps;
@@ -86,6 +142,8 @@ public class ImageDAO {
         switch (table) {
             case "activies_img":
                 return getActivitiesImage(id);
+             case "schedule_img":
+                return getScheduleImages(id);    
             case "bill_img":
                 return getBillsImage(id);
             default:
@@ -183,4 +241,35 @@ public class ImageDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+     public static List<ScheduleImage> getScheduleImages(int scheduleId) {
+        Connection conn;
+        PreparedStatement ps;
+        ResultSet rs;
+        List<ScheduleImage> images = new ArrayList();
+
+        try {
+            String query = "select * from schedule_img where schedule_id = ?";
+            conn = new DBContext().getConnection();
+
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, scheduleId);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("schedule_img_id");
+                String path = rs.getString("schedule_img_path");
+                ScheduleImage image = new ScheduleImage(id, scheduleId, path);
+                images.add(image);
+            }
+
+            // close connection after execute query
+            ps.close();
+            conn.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return images;
+    }
+
 }
