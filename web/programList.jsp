@@ -3,7 +3,6 @@
     Created on : Mar 28, 2023, 2:15:01 PM
     Author     : DINH TRUNG
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -171,8 +170,10 @@
                                 </div>
                             </div>
                             <div class="progress-text">
-                                <p><strong>Raised:</strong>$${(item.raisedAmount)}</p>
-                                <p><strong>Goal:</strong> $${(item.goalAmount)}</p>
+                                <p><strong>Raised:</strong>$<fmt:formatNumber type = "number" 
+                                              groupingUsed = "false" value = "${(item.raisedAmount)}" /></p>
+                                <p><strong>Goal:</strong> $<fmt:formatNumber type = "number" 
+                                              groupingUsed = "false" value = "${(item.goalAmount)}" /> </p>
                             </div>
                         </div>
                         <div class="causes-text" style="height: 6em">
