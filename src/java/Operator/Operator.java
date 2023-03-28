@@ -7,8 +7,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
-
+@Builder
+@Getter
+@Setter
+@ToString
 public class Operator {
     private int operatorId;
     private int programId;

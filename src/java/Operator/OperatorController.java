@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Operator;
 
 import News.*;
@@ -25,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-
 @WebServlet(name = "OperatorController", urlPatterns = {"/operator"})
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 10, // 10 MB
@@ -38,13 +32,30 @@ public class OperatorController extends HttpServlet {
     private final UserService userService = new UserService();
     private final OperatorService operatorService = new OperatorService();
 
-   s
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
     }
 
-   
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int programId = Integer.parseInt(req.getParameter("programId"));
@@ -57,8 +68,16 @@ public class OperatorController extends HttpServlet {
         req.getRequestDispatcher("operator.jsp").forward(req, resp);
     }
 
-   
-    
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
@@ -160,13 +179,31 @@ public class OperatorController extends HttpServlet {
 
     }
 
-   
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPut(req, resp); //To change body of generated methods, choose Tools | Templates.
     }
 
-  
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doDelete(req, resp); //To change body of generated methods, choose Tools | Templates.

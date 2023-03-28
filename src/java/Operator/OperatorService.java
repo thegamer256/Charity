@@ -21,8 +21,8 @@ public class OperatorService {
             String[] unChangedActivitiesProgram,
             String[] unChangedBillProgram,
             String[] unChangeOperatorId
-    ) {
-
+    ) 
+    {
         dao.deleteOperatorByIds(operator);
         if (!operator.isEmpty()) {
             List<Operator> addedOperators = dao.addOperator(operator, unChangeOperatorId);

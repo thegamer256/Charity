@@ -16,9 +16,13 @@ import javax.servlet.http.Part;
 
 
 public class FileUploader {
-    
     private static final String IMAGE_FOLDER = "img";
     
+<<<<<<< HEAD
+    private static final String IMAGE_FOLDER = "img";
+    
+=======
+>>>>>>> ab6429ec6d4329449489a3df72d22f7d911653db
     public static List<String> uploadImages(List<Part> imageParts, String subName, String path) {
         List<String> imageWithPaths = new ArrayList<>();
         
@@ -41,6 +45,7 @@ public class FileUploader {
             }
         });
         return imageWithPaths;
+<<<<<<< HEAD
     }
     
     public static String uploadSingleImage(Part imgPart, String subName, String path) {
@@ -59,5 +64,9 @@ public class FileUploader {
                 Logger.getLogger(FileUploader.class.getName()).log(Level.SEVERE, null, ex);
             }
             return fileName;
+=======
+>>>>>>> ab6429ec6d4329449489a3df72d22f7d911653db
     }
+    
+    
 }
