@@ -113,8 +113,8 @@
 <div class="causes">
     <div class="container">
         <div class="section-header text-center">
-            <p>Popular Causes</p>
-            <h2>Let's know about charity causes around the world</h2>
+            <p>Our Program</p>
+            <h2>Let's know about our charity programs in Vietnam</h2>
         </div>
         <div class="row d-flex justify-content-center mb-5">
             <div class="col-md-12">

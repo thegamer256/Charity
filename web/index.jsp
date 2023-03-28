@@ -278,7 +278,7 @@
     <div class="container">
         <div class="section-header text-center">
             <p>Our Program</p>
-            <h2>Let's know about charity program in Vietnam</h2>
+            <h2>Let's know about charity programs in Vietnam</h2>
         </div>
         <div class="owl-carousel causes-carousel">
             <c:forEach var="item" items="${listPrograms}">
@@ -317,8 +317,6 @@
     </div>
 </div>
 <!-- Causes End -->
-
-
 
 
 <!-- Event Start -->
