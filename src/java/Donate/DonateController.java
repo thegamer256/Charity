@@ -50,23 +50,22 @@ public class DonateController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp); //To change body of generated methods, choose Tools | Templates.
-
     }
 
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param req servlet request
-     * @param resp servlet response
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
 
         switch (action) {
@@ -77,17 +76,12 @@ public class DonateController extends HttpServlet {
             case "confirm":
                 confirmDonating(req, resp);
                 break;
-            default: 
+            default:
                 req.getRequestDispatcher("home").forward(req, resp);
                 break;
         }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     protected void confirmDonating(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         Account account = (Account) session.getAttribute("user");
@@ -97,19 +91,19 @@ public class DonateController extends HttpServlet {
         String otpCheck = req.getParameter("otp");
         String urlHistory = (String) session.getAttribute("urlHistory");
         String otp = (String) session.getAttribute("otp");
-        
-        if(!otpCheck.equals(otp)) {
+
+        if (!otpCheck.equals(otp)) {
             String errOtp = "The OTP is not correct, please input it again.";
-           
+
             req.setAttribute("programId", programId);
             req.setAttribute("amount", amount);
             req.setAttribute("message", message);
             req.setAttribute("errorMessage", errOtp);
-            
+
             req.getRequestDispatcher("confirm.jsp").forward(req, resp);
             return;
         }
-        
+
         session.removeAttribute("otp");
         Donate donate = new Donate(0, account.getAccountId(), Integer.parseInt(programId), Double.parseDouble(amount), null, message);
         try {
@@ -118,7 +112,7 @@ public class DonateController extends HttpServlet {
             req.setAttribute("urlHistory", urlHistory);
             req.getRequestDispatcher("failedPage.jsp").forward(req, resp);
         }
-        
+
         req.getRequestDispatcher("successPage.jsp").forward(req, resp);
     }
 
@@ -134,30 +128,31 @@ public class DonateController extends HttpServlet {
 
         int currentWalletAmount = service.getWalletAmount(account.getAccountId());
         session = req.getSession(true);
-        
+
 //        Check if money in your bank is enough or not
         if (currentWalletAmount < Integer.parseInt(amount)) {
             req.setAttribute("errorMessage", "Your current wallet don't have enough money, please put more money!!");
-            String urlHistory = "program?action=detail&programId=" + programId;
+            String urlHistory = "program?action=detail&programId=" + programId + "&errorMessage=Your current wallet don't have enough money, please put more money!!";
             session.setAttribute("urlHistory", urlHistory);
             resp.sendRedirect(urlHistory);
+        } else {
+            //        Send otp to confirm donating
+            String otp = OTPGenerate.generateOTP();
+            session.setAttribute("otp", otp);
+
+            try {
+                SendMail.sendConfirmEmail("success", emailAccount, "CONFIRM DONATING", "We receive a request that you donate " + amount + " dollars for the project " + programName + " pllease confirm it by the OTP", "Thanks for being a part of us", otp);
+
+            } catch (Exception e) {
+                resp.sendRedirect("failedPage.jsp");
+            }
+
+            req.setAttribute("amount", amount);
+            req.setAttribute("message", message);
+            req.setAttribute("programId", programId);
+            req.getRequestDispatcher("confirm.jsp").forward(req, resp);
         }
 
-//        Send otp to confirm donating
-        String otp = OTPGenerate.generateOTP();
-        session.setAttribute("otp", otp);
-        
-        try {
-            SendMail.sendConfirmEmail("success", emailAccount, "CONFIRM DONATING", "We receive a request that you donate " + amount + " dollars for the project " + programName + " pllease confirm it by the OTP", "Thanks for being a part of us", otp);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        req.setAttribute("amount", amount);
-        req.setAttribute("message", message);
-        req.setAttribute("programId", programId);
-        req.getRequestDispatcher("confirm.jsp").forward(req, resp);
     }
 
 }
