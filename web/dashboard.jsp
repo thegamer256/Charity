@@ -4,12 +4,15 @@
     Author     : huynh
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
 
-        <title>Flash Able - Most Trusted Admin Template</title>
+        <title>FantasticV - Dashboard</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -27,6 +30,7 @@
         <!-- vendor css -->
         <link rel="stylesheet" href="./assets/css/dashboard-style.css">
     </head>
+
     <body class="">
         <!-- [ Pre-loader ] start -->
         <div class="loader-bg">
@@ -56,9 +60,12 @@
                         <li class="nav-item">
                             <a href="dashboard?action=user" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">User</span></a>
                         </li>
-
+                        <li class="nav-item">
+                            <a href="dashboard?action=contact" class="nav-link"><span class="pcoded-micon"><i class="feather icon-message-circle"></i></span><span class="pcoded-mtext">Message</span></a>
+                        </li>
 
                     </ul>
+
                 </div>
             </div>
         </nav>
@@ -104,7 +111,8 @@
                                                 <div class="row align-items-center m-b-25">
                                                     <div class="col">
                                                         <h6 class="m-b-5 text-white">Total donate today</h6>
-                                                        <h3 class="m-b-0 text-white"></h3>/**/
+                                                        <h3 class="m-b-0 text-white">$<fmt:formatNumber type = "number" 
+                                                                          groupingUsed = "false" value = "${totalToday}" /></h3>
                                                     </div>
                                                     <div class="col-auto">
                                                         <i class="fas fa-money-bill-alt text-c-red f-18"></i>
@@ -120,7 +128,8 @@
                                                 <div class="row align-items-center m-b-25">
                                                     <div class="col">
                                                         <h6 class="m-b-5 text-white">Total donate this month</h6>
-                                                        <h3 class="m-b-0 text-white">$${totalThisMonth}</h3>
+                                                        <h3 class="m-b-0 text-white">$<fmt:formatNumber type = "number" 
+                                                                          groupingUsed = "false" value = "${totalThisMonth}" /></h3>
                                                     </div>
                                                     <div class="col-auto">
                                                         <i class="fas fa-database text-c-blue f-18"></i>
@@ -136,7 +145,8 @@
                                                 <div class="row align-items-center m-b-25">
                                                     <div class="col">
                                                         <h6 class="m-b-5 text-white">Total donate</h6>
-                                                        <h3 class="m-b-0 text-white"></h3>/**/
+                                                        <h3 class="m-b-0 text-white">$<fmt:formatNumber type = "number" 
+                                                                          groupingUsed = "false" value = "${totalAll}" /></h3>
                                                     </div>
                                                     <div class="col-auto">
                                                         <i class="fas fa-dollar-sign text-c-green f-18"></i>
@@ -152,7 +162,7 @@
                                                 <div class="row align-items-center m-b-25">
                                                     <div class="col">
                                                         <h6 class="m-b-5 text-white">Number of program in process</h6>
-                                                        <h3 class="m-b-0 text-white"></h3>/**/
+                                                        <h3 class="m-b-0 text-white">${avaiablePrograms}</h3>
                                                     </div>
                                                     <div class="col-auto">
                                                         <i class="fas fa-tags text-c-yellow f-18"></i>
@@ -175,18 +185,21 @@
 
                                                     </div>
                                                     <div class="col text-right">
-                                                        <h3></h3>/**/
+                                                        <h3><fmt:formatNumber type = "number" 
+                                                                          groupingUsed = "false" value = "${totalCalledAmountClose}" />$</h3>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-block">
                                                 <div class="row align-items-center justify-content-center card-active">
                                                     <div class="col-12">
-                                                        <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Target:</span></h6>/**/
+                                                        <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Target:</span><fmt:formatNumber type = "number" 
+                                                                          groupingUsed = "false" value = "${totalActualAmountClose}" />$</h6>
                                                         <div class="progress">
-                                                            <div class="progress-bar progress-c-blue" role="progressbar"  aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>/**/
+                                                            <div class="progress-bar progress-c-blue" role="progressbar" style="${(totalCalledAmountClose/totalActualAmountClose) * 100}%;height:6px;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -203,7 +216,11 @@
 
                                                     </div>
                                                     <div class="col text-right">
-                                                        <h3></h3>/**/
+                                                        <h3>
+                                                            <fmt:formatNumber type = "number" 
+                                                                              groupingUsed = "false" value = "${totalCalledAmountOpen}" />
+                                                            $
+                                                        </h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -211,9 +228,13 @@
                                                 <div class="row align-items-center justify-content-center card-active">
 
                                                     <div class="col-12">
-                                                        <h6 class="text-center  m-b-10"><span class="text-muted m-r-5">Target:</span></h6>/**/
+                                                        <h6 class="text-center  m-b-10"><span class="text-muted m-r-5">Target:</span>
+                                                            <fmt:formatNumber type = "number" 
+                                                                              groupingUsed = "false" value = "${totalActualAmountOpen}" />
+
+                                                            $</h6>
                                                         <div class="progress">
-                                                            <div class="progress-bar progress-c-green" role="progressbar"  aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>/**/
+                                                            <div class="progress-bar progress-c-green" role="progressbar" style="width:${totalActualAmountOpen == 0 ? 0 : (totalCalledAmountOpen/totalActualAmountOpen)*100}%;height:6px;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -238,7 +259,7 @@
                                                                     <th><span>PROVINCE</span></th>
                                                                     <th><span>ADDRESS</span></th>
 
-                                                                    <th><span>SCHEDULE</span></th>
+                                                                    <th><span>RAISE DATE</span></th>
                                                                     <th><span>GOAL AMOUNT </span></th>
                                                                     <th><span>RAISED</span></th>
                                                                     <th><span>PROCESS</span></th>
@@ -247,7 +268,70 @@
 
                                                                 </tr>
                                                             </thead>
-                                                           /**/
+                                                            <tbody>
+                                                                <c:choose>
+                                                                    <c:when test="${not empty programs}">
+                                                                        <c:set var = "programNo" value="${1}" />
+                                                                        <jsp:useBean id="now" class="java.util.Date"/>
+                                                                        <c:forEach var="item" items="${programs}">
+                                                                            <tr>
+                                                                                <td>${programNo}</td>
+                                                                                <td><a href="program?action=detail&programId=${item.programId}&isClosed=${item.isClosed}">${item.programName}</a></td>
+                                                                                <td>${item.destination.city}</td>
+                                                                                <td>${item.destination.province}</td>
+                                                                                <td>${item.destination.address} </td>
+                                                                                <td>${item.startDate} - ${item.endDate}</td>
+                                                                                <td><fmt:formatNumber type = "number" 
+                                                                                                  groupingUsed = "false" value = "${(item.goalAmount)}" />$</td>
+                                                                                <td><fmt:formatNumber type = "number" 
+                                                                                                  groupingUsed = "false" value = "${item.raisedAmount}" />$</td>
+                                                                                <td>${(item.raisedAmount / item.goalAmount) * 100}%
+                                                                                    <div class="progress mt-1" style="height:4px;">
+                                                                                        <div class="progress-bar bg-warning rounded" role="progressbar" style="width: ${(item.raisedAmount / item.goalAmount) * 100}%;" aria-valuenow="${(item.raisedAmount / item.goalAmount) * 100}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td style="padding-top: 0.6em">
+                                                                                    <div class="mt-1" >
+                                                                                        <c:if test="${item.isClosed == 'FALSE'}">
+                                                                                            <form method="POST" action="/OJT_Mock/program?action=close">
+                                                                                                <input  type="hidden" class="form-control"  name="programId"  value="${item.programId}" >
+                                                                                                <button class="btn btn-danger btn-sm text-white m-0" type="submit">CLOSE</button>
+                                                                                            </form>
+                                                                                        </c:if>
+                                                                                        <c:if test="${item.isClosed == 'TRUE'}">
+                                                                                            <form method="POST" action="/OJT_Mock/program?action=open">
+                                                                                                <input  type="hidden" class="form-control"  name="programId"  value="${item.programId}" >
+
+
+                                                                                                <c:choose>
+                                                                                                    <c:when test="${item.isOutDate == 'TRUE'}">
+                                                                                                        <button class="btn btn-success btn-sm text-white m-0" type="submit" disabled>OPEN</button>
+                                                                                                    </c:when>
+                                                                                                    <c:otherwise>
+                                                                                                        <button class="btn btn-success btn-sm text-white m-0" type="submit">OPEN</button>
+                                                                                                    </c:otherwise>
+                                                                                                </c:choose>
+
+
+                                                                                            </form>
+                                                                                        </c:if>
+
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <c:set var = "programNo" value="${programNo+1}" />
+                                                                        </c:forEach>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <tr>There is no program yet</tr>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+
+
+
+
+
+                                                            </tbody>
                                                         </table>
                                                     </div>
                                                 </div>
@@ -281,7 +365,33 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                            /**/
+
+                                                                <c:choose>
+                                                                    <c:when test="${not empty donations}">
+                                                                        <c:set var = "donateNo" value="${1}" />
+                                                                        <c:forEach var="item" items="${donations}">
+                                                                            <tr>
+                                                                                <td>${donateNo}</td>
+                                                                                <td>${item.name}</td>
+                                                                                <td>${item.amount}$</td>
+                                                                                <td>${item.programName}</td>
+                                                                                <td style="text-align: center">${item.message}</td>
+                                                                                <td style="text-align: center">${item.donate_date}</td>
+                                                                            </tr>
+
+                                                                            <c:set var = "donateNo" value="${donateNo+1}" />
+                                                                        </c:forEach>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <tr>
+                                                                            <td colspan="5">Number is less than or equal to 10.</td>
+                                                                        </tr>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+
+
+
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -299,9 +409,11 @@
                 </div>
             </div>
         </div>
+
         <script src="./assets/js/vendor-all.min.js"></script>
         <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
         <script src="./assets/js/pcoded.min.js"></script>
 
     </body>
+
 </html>

@@ -247,7 +247,11 @@
                 <div class="facts-item">
                     <i class="flaticon-kindness"></i>
                     <div class="facts-text">
-                        <h3 class="facts-dollar" data-toggle="counter-up">${totalGoal} "đ"</h3>
+                        <h3 class="facts-dollar" data-toggle="counter-up">
+
+                            <fmt:formatNumber type = "number" value = "${totalGoal}" /> "đ"
+                            
+                        </h3>
                         <p>Our Goal</p>
                     </div>
                 </div>
@@ -256,7 +260,9 @@
                 <div class="facts-item">
                     <i class="flaticon-donation"></i>
                     <div class="facts-text">
-                        <h3 class="facts-dollar" data-toggle="counter-up">${totalRaised}</h3>
+                        <h3 class="facts-dollar" data-toggle="counter-up">
+                            <fmt:formatNumber type = "number" value = "${totalRaised}" />
+                        </h3>
                         <p>Raised</p>
                     </div>
                 </div>
