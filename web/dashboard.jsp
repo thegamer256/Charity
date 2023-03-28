@@ -293,13 +293,13 @@
                                                                                 <td style="padding-top: 0.6em">
                                                                                     <div class="mt-1" >
                                                                                         <c:if test="${item.isClosed == 'FALSE'}">
-                                                                                            <form method="POST" action="/OJT_Mock/program?action=close">
+                                                                                            <form method="POST" action="/ojt/program?action=close">
                                                                                                 <input  type="hidden" class="form-control"  name="programId"  value="${item.programId}" >
                                                                                                 <button class="btn btn-danger btn-sm text-white m-0" type="submit">CLOSE</button>
                                                                                             </form>
                                                                                         </c:if>
                                                                                         <c:if test="${item.isClosed == 'TRUE'}">
-                                                                                            <form method="POST" action="/OJT_Mock/program?action=open">
+                                                                                            <form method="POST" action="/ojt/program?action=open">
                                                                                                 <input  type="hidden" class="form-control"  name="programId"  value="${item.programId}" >
 
 
