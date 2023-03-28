@@ -42,32 +42,34 @@ public class UserSignUpController extends HttpServlet {
 
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param req servlet request
-     * @param resp servlet response
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("signup.jsp").forward(req, resp);
     }
 
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param req servlet request
-     * @param resp servlet response
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String action = req.getParameter("action");
 
         switch (action) {
@@ -140,8 +142,6 @@ public class UserSignUpController extends HttpServlet {
         if (sendMailCheck == false) {
             req.getRequestDispatcher("failedPage.jsp").forward(req, resp);
         } else {
-            session.setAttribute("partAvatar", part);
-
             req.setAttribute("passwordConfirm", passwordConfirm);
             req.setAttribute("accountSignUp", accountSignUp);
             req.setAttribute("donorSignUp", donorSignUp);
@@ -155,10 +155,9 @@ public class UserSignUpController extends HttpServlet {
     protected void confirmSignUpUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDAO userDAO = new UserDAO();
         HttpSession session = req.getSession();
-
         String otp = req.getParameter("otp");
         String otpConfirm = (String) session.getAttribute("regisOtp");
-        
+
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String email = req.getParameter("email");
@@ -170,7 +169,10 @@ public class UserSignUpController extends HttpServlet {
         String dob = req.getParameter("dob");
         String bankAccount = req.getParameter("bank_account");
         String avatar = req.getParameter("avatarPath");
+
         
+
+//        
 //        User userSignUp = new User(0, username, password, email, city, province, address, name, "donor", null, phoneNumber, dob, bankAccount, null);
         Account accountSignUp = new Account(0, username, password, 3, null);
         Donor donorSignUp = new Donor(0, username, password, 3, null, email, city, province, address, name, avatar, phoneNumber, dob, bankAccount);
@@ -181,7 +183,6 @@ public class UserSignUpController extends HttpServlet {
             req.setAttribute("error", "Your OTP is incorrect");
             req.getRequestDispatcher("confirmEmailRegis.jsp").forward(req, resp);
         }
-        
         
         try {
 
@@ -205,17 +206,38 @@ public class UserSignUpController extends HttpServlet {
             req.setAttribute("userSignUp", donorSignUp);
             req.getRequestDispatcher("signup.jsp").forward(req, resp);
         }
+
     }
 
+//    protected void confirmRegisUser() 
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPut(req, resp); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doDelete(req, resp); //To change body of generated methods, choose Tools | Templates.
     }
-    
     
 }

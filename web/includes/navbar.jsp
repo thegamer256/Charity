@@ -25,16 +25,7 @@
                     <a href="news?action=list" class="nav-item nav-link">News</a>
                     <a href="contact.jsp" class="nav-item nav-link">Contact</a>
                     <a href="donate.jsp" class="nav-item nav-link">Donate</a>
-<!--                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu">
-                            <a href="detail.jsp" class="dropdown-item">Detail Page</a>
-                            <a href="service.jsp" class="dropdown-item">What We Do</a>
-                            <a href="team.jsp" class="dropdown-item">Meet The Team</a>
-                            <a href="donate.jsp" class="dropdown-item">Donate Now</a>
-                            <a href="volunteer.html" class="dropdown-item">Become A Volunteer</a>
-                        </div>
-                    </div>-->
+
                     <c:if test="${sessionScope.user !=null}">
                         <a href="contact" class="nav-item nav-link">Contact</a>
 
@@ -51,7 +42,7 @@
                             <c:when test="${sessionScope.user !=null}">
                                 <a class="dropdown-item" href="user?userId=${sessionScope.user.accountId}">${sessionScope.user.getName()}</a>
 
-                                <c:if test="${sessionScope.user.role=='2' || sessionScope.user.role=='1'}">
+                                <c:if test="${sessionScope.user.role=='2'}">
                                     <a class="dropdown-item" href="program?action=register">Create program</a>
                                     <a class="dropdown-item" href="/OJT_Mock/news-manage">Create news</a>
                                 </c:if>

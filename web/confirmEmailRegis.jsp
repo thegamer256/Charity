@@ -9,7 +9,7 @@
 <html>
     <%@include file="/includes/header.jsp"%>
     <head>
-        <title>Confirm</title>
+        <title>Confirm Email Register</title>
     </head>
 
     <%@include file="/includes/navbar.jsp"%>
@@ -42,7 +42,9 @@
                         </div>
                         <div class="donate-text">
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                                Please help those in need by donating to charity. 
+                                Your generosity can make a huge difference in someone's life. 
+                                Together, we can create positive change and make the world a better place                             
                             </p>
                         </div>
                     </div>
@@ -60,7 +62,7 @@
                                 <input type="hidden" class="form-control" name="username" value="${donorSignUp.username}"/>
                                 <input type="hidden" class="form-control" name="password" value="${donorSignUp.password}"/>
                                 <input type="hidden" class="form-control" name="passwordConfirm" value="${passwordConfirm}"/>
-                                 <input type="hidden" class="form-control" name="email" value="${donorSignUp.email}"/>
+                                <input type="hidden" class="form-control" name="email" value="${donorSignUp.email}"/>
                                 <input type="hidden" class="form-control" name="city" value="${donorSignUp.city}"/>
                                 <input type="hidden" class="form-control" name="province" value="${donorSignUp.province}"/>
                                 <input type="hidden" class="form-control" name="address" value="${donorSignUp.address}"/>
@@ -83,4 +85,6 @@
     </div>
     <!-- Donate End -->
 
+
     <%@include file="/includes/footer.jsp"%>
+

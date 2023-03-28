@@ -24,10 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author LE ANH TUAN
- */
 @WebServlet(name = "DashBoardController", urlPatterns = {"/dashboard"})
 public class DashBoardController extends HttpServlet {
 
@@ -90,7 +86,7 @@ public class DashBoardController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     @Override
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
     }
