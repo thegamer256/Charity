@@ -44,7 +44,8 @@
 
                                 <c:if test="${sessionScope.user.role=='2'}">
                                     <a class="dropdown-item" href="program?action=register">Create program</a>
-                                    <a class="dropdown-item" href="/OJT_Mock/news-manage">Create news</a>
+                                    <a class="dropdown-item" href="/ojt/news-manage">Create news</a>
+                                    <a class="dropdown-item" href="">Update Operator</a>
                                 </c:if>
                                 <c:if test="${sessionScope.user.role=='1'}">
                                     <a class="dropdown-item" href="dashboard?action=donation">Dashboard</a>

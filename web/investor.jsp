@@ -39,7 +39,7 @@
                 <input type="hidden" value="" name="schedule__date" />
                                             ***              *
             </div>
-            <form method="POST" action="/OJT_Mock/investor?action=register" id="form" class="container" enctype="multipart/form-data">
+            <form method="POST" action="/ojt/investor?action=register" id="form" class="container" enctype="multipart/form-data">
                 <div data-schedule-date="investor" id="investor-form-1" class="form-group-invest">
                     <h4 class="text-light">Investor for Program</h4>
                     <div class="form-group">
