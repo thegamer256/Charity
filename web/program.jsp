@@ -9,7 +9,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <head>
-    <title>Our Program</title>
+    <title>FantasticV - Charity Website</title>
     <link rel="stylesheet" href="css/program.css">
 
     <style>
@@ -527,7 +527,6 @@
         document.getElementById("privateSubmitBtn").disabled = true;
         document.getElementById("privateSubmitBtn").style.display = "none";
     }
-
 </script>
 
 <!-- JavaScript Libraries -->
@@ -549,4 +548,3 @@
 </body>
 
 </html>
-
