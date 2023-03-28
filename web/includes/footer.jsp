@@ -28,9 +28,9 @@
                         <h2>Popular Links</h2>
                         <a href="">About Us</a>
                         <a href="">Contact Us</a>
-                        <a href="">Popular Causes</a>
+                        <a href="">Our Program</a>
                         <a href="">Upcoming Events</a>
-                        <a href="">Latest Blog</a>
+                        <a href="">Latest News</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

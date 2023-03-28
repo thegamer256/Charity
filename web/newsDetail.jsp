@@ -3,7 +3,7 @@
 
 <%@include file="/includes/header.jsp"%>
 <head>
-    <title>Detail</title>
+    <title>News Detail</title>
 </head>
 
 <%@include file="/includes/navbar.jsp"%>

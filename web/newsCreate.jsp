@@ -4,7 +4,7 @@
 <html>
     <%@include file="/includes/header.jsp"%>
     <head>
-        <title>Program Register</title>
+        <title>Create News</title>
         <link href="css/news.css" type="text/css" rel="stylesheet">
     </head>
     <body>
