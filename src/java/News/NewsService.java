@@ -12,10 +12,6 @@ import java.util.logging.Logger;
 import javax.servlet.http.Part;
 import shared.FileUploader;
 
-/**
- *
- * @author toten
- */
 public class NewsService {
 
     private final NewsDAO dao = new NewsDAO();
