@@ -18,7 +18,6 @@ import lombok.Setter;
  *
  * @author DINH TRUNG
  */
-
 @Getter
 @Setter
 public class ProgramVO extends Program {

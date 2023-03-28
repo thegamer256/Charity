@@ -181,7 +181,7 @@ public class ProgramDAO {
             ResultSet rs;
 
             String query = "select count(DISTINCT pr.program_id) as total_program\n"
-                    + "from program pr, destination des, investor inv, donor dn where pr.program_id=des.program_id and pr.program_id=inv.program_id  and pr.account_id=dn.account_id";
+                    + "from program pr, destination des, investor inv, donor dn where pr.program_id=des.program_id and pr.program_id=inv.program_id  and pr.account_id=dn.account_id and pr.is_closed='FALSE'";
             conn = new DBContext().getConnection();
             
             for (Map.Entry<String, String> entry : conditions.entrySet()) {
@@ -231,7 +231,7 @@ public class ProgramDAO {
         return -1;
     }
 
-    double getGoalAmountAll(String statusCase) {
+    long getGoalAmountAll(String statusCase) {
         try {
             Connection conn;
             PreparedStatement ps;
@@ -241,13 +241,13 @@ public class ProgramDAO {
 
             switch (statusCase) {
                 case "close":
-                    query = "select ISNULL(sum(pr.goal_amount), 0) as total from donate dn, program pr where dn.program_id=pr.program_id and pr.is_closed='TRUE'";
+                    query = "select ISNULL(sum(pr.goal_amount), 0) as total from program pr where pr.is_closed='TRUE'";
                     break;
                 case "open":
-                    query = "select ISNULL(sum(pr.goal_amount), 0) as total from donate dn, program pr where dn.program_id=pr.program_id and pr.is_closed='FALSE'";
+                    query = "select ISNULL(sum(pr.goal_amount), 0) as total from program pr where pr.is_closed='FALSE'";
                     break;
                 default:
-                    query = "select ISNULL(sum(pr.goal_amount), 0) as total from donate dn, program pr where dn.program_id=pr.program_id and pr.is_closed='FALSE'";
+                    query = "select ISNULL(sum(pr.goal_amount), 0) as total from program pr where pr.is_closed='FALSE'";
                     break;
             }
 
@@ -257,9 +257,9 @@ public class ProgramDAO {
 
             rs = ps.executeQuery();
 
-            int a = -1;
+            long a = -1;
             while (rs.next()) {
-                a = rs.getInt("total");
+                a = rs.getLong("total");
             }
 
             return a;
@@ -268,6 +268,11 @@ public class ProgramDAO {
             Logger.getLogger(ProgramDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return -1;
+    }
+    
+    public static void main(String[] args) {
+        ProgramDAO dao = new ProgramDAO();
+        System.out.println(dao.getGoalAmountAll("close"));
     }
 
     double getActutalAmountAll(String statusCase) {
@@ -316,7 +321,7 @@ public class ProgramDAO {
             ResultSet rs;
 
             String query = "select *, (select top 1 program_img_path from program_img where program_id=pr.program_id) as display_img, (SELECT ISNULL((select sum(amount) from donate where program_id=pr.program_id), 0)) as raised_amount \n"
-                    + "from program as pr order by pr.start_date\n"
+                    + "from program as pr where pr.is_closed='FALSE' order by pr.start_date\n"
                     + "offset ? rows fetch next ? rows only";
 //            OFFSET ? ROWS FETCH NEXT ? ROWS ONLY
 
@@ -355,7 +360,7 @@ public class ProgramDAO {
 
             String query = "select DISTINCT pr.*, (select top 1 program_img_path from program_img where program_id=pr.program_id) as display_img, \n"
                     + "(SELECT ISNULL((select sum(amount) from donate where program_id=pr.program_id), 0)) as raised_amount \n"
-                    + "from program pr, destination des, investor inv, donor dn where pr.program_id=des.program_id and pr.program_id=inv.program_id  and pr.account_id=dn.account_id";
+                    + "from program pr, destination des, investor inv, donor dn where pr.program_id=des.program_id and pr.program_id=inv.program_id  and pr.account_id=dn.account_id and pr.is_closed='FALSE'";
 
             // classic way, loop a Map
             for (Map.Entry<String, String> entry : conditions.entrySet()) {
@@ -489,7 +494,7 @@ public class ProgramDAO {
 
         try {
 
-            String query = "update program set is_closed = 'TRUE' where end_date<getdate()";
+            String query = "update program set is_closed = 'TRUE' where end_date<cast(getdate() as date)";
             conn = new DBContext().getConnection();
 
             ps = conn.prepareStatement(query);

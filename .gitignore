@@ -5,3 +5,4 @@ nbproject/private
 /dist/
 
 src/java/Properties
+web/WEB-INF/lib/web.xml
