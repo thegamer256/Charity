@@ -5,6 +5,7 @@
  */
 package User;
 
+import Security.PasswordEncrypt;
 import context.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -102,13 +103,21 @@ public class UserDAO {
             Account ud = null;
             while (rs.next()) {
                 ud = (new Donor(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"), rs.getInt("role_id"), rs.getString("salt"),
-                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"), rs.getString("avatar"), rs.getString("phone_number"), rs.getString("dob"), rs.getString("bank_account")));
+                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"), 
+                        rs.getString("avatar"), rs.getString("phone_number"), rs.getString("dob"), rs.getString("bank_account")));
 
                 break;
 
             }
-
             
+            if (ud != null) {
+                Boolean status = PasswordEncrypt.verifyUserPassword(password, ud.getPassword(), ud.getSalt());
+                if (status == true) {
+                    ud.setPassword(null);
+                    ud.setSalt(null);
+                    return ud;
+                }
+            }
 
             return null;
         } catch (SQLException | ClassNotFoundException ex) {
@@ -136,7 +145,8 @@ public class UserDAO {
             Account userAcc = null;
             while (rs.next()) {
                 userAcc = (new Donor(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"), rs.getInt("role_id"), rs.getString("salt"),
-                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"), rs.getString("avatar"), rs.getString("phone_number"), rs.getString("dob"), rs.getString("bank_account")));
+                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"), 
+                        rs.getString("avatar"), rs.getString("phone_number"), rs.getString("dob"), rs.getString("bank_account")));
 
             }
 
@@ -174,7 +184,9 @@ public class UserDAO {
             Account userAcc = null;
             while (rs.next()) {
                 userAcc = (new Donor(rs.getInt("account_id"), rs.getString("username"), null, rs.getInt("role_id"), null,
-                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"), rs.getString("avatar"), rs.getString("phone_number"), rs.getString("dob"), rs.getString("bank_account")));
+                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), 
+                        rs.getString("address"), rs.getString("name"), rs.getString("avatar"), rs.getString("phone_number"), 
+                        rs.getString("dob"), rs.getString("bank_account")));
 
             }
 

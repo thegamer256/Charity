@@ -6,7 +6,6 @@
 package User;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -33,7 +32,7 @@ public class UserLoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -46,28 +45,28 @@ public class UserLoginController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //        Kiem tra cookie
         Cookie[] cookie = request.getCookies();
         String username = null;
         HttpSession session = request.getSession();
-        
-        for(Cookie c : cookie) {
-            if(c.getName().equals("username")) {
+
+        for (Cookie c : cookie) {
+            if (c.getName().equals("username")) {
                 username = c.getValue();
                 break;
             }
         }
-        
+
         if (username != null) {
             Account account = new UserDAO().checkExistedUsername(username);
-            
-            if(account!=null) {
+
+            if (account != null) {
                 request.getSession().setAttribute("account", account);
                 String urlHistory = (String) session.getAttribute("urlHistory");
                 System.out.println(urlHistory);
-                
-                if(urlHistory!=null) {
+
+                if (urlHistory != null) {
                     response.sendRedirect(urlHistory);
                 } else {
                     response.sendRedirect("home");
@@ -75,7 +74,7 @@ public class UserLoginController extends HttpServlet {
                 return;
             }
         }
-        
+
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
@@ -91,7 +90,7 @@ public class UserLoginController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
         String urlHistory = (String) session.getAttribute("urlHistory");
 
@@ -100,27 +99,25 @@ public class UserLoginController extends HttpServlet {
         String password = request.getParameter("password");
         String remember = request.getParameter("remember");
 
-            Account user = new UserDAO().login(username, password);
+        Account user = new UserDAO().login(username, password);
 
 //        Kiem tra username, pass, neu hop le thi luu len session, khong thi tra ve loi
         if (user != null) {
             session.setAttribute("user", user);
 
 //            remember
-            if (remember !=null && remember.equals("checked")) {
+            if (remember != null && remember.equals("checked")) {
                 Cookie usernameCookie = new Cookie("username", username);
                 usernameCookie.setMaxAge(60 * 60 * 24 * 2);
                 response.addCookie(usernameCookie);
-            }  
-                
-             if(urlHistory==null) {
+            }
+
+            if (urlHistory == null) {
                 response.sendRedirect("home");
-//                  request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 response.sendRedirect(urlHistory);
-            } 
-            
-            
+            }
+
         } else {
             request.setAttribute("error", "Username or password is incorrect");
             request.getRequestDispatcher("login.jsp").forward(request, response);

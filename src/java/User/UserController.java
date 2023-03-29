@@ -10,7 +10,6 @@ import Donate.DonateService;
 import Security.PasswordEncrypt;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -35,7 +34,7 @@ import shared.SendMail;
         maxRequestSize = 1024 * 1024 * 100 // 100 MB
 )
 public class UserController extends HttpServlet {
-    
+
     private final DonateService donateService = new DonateService();
     private final UserService userService = new UserService();
 
@@ -100,6 +99,7 @@ public class UserController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String action = req.getParameter("action");
 
         switch (action) {
@@ -116,6 +116,7 @@ public class UserController extends HttpServlet {
                 changePassword(req, resp);
                 break;
         }
+
     }
 
     private void updateBasicInfo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
