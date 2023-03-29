@@ -12,10 +12,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- *
- * @author DINH TRUNG
- */
 @Builder
 @Getter
 @Setter
@@ -37,7 +33,7 @@ public class Program {
     @Getter
     @Setter
     @ToString
-    class Destination {
+    public class Destination {
         private int id;
         private String city;
         private String province;

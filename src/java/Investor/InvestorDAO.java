@@ -5,7 +5,6 @@
  */
 package Investor;
 
-import News.News;
 import News.NewsDAO;
 import Operator.OperatorDAO;
 import context.DBContext;
@@ -20,10 +19,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author toten
- */
 public class InvestorDAO {
 
     public void saveInvestors(List<Investor> investor) throws SQLException {

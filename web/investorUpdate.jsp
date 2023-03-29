@@ -44,7 +44,7 @@
 
 
             </div>
-            <form method="POST" action="/OJTMock/investor?action=update&programId=${param.programId}" id="form" class="container" enctype="multipart/form-data">
+            <form method="POST" action="/OJT_Mock/investor?action=update&programId=${param.programId}" id="form" class="container" enctype="multipart/form-data">
                 <c:forEach var="item" items="${listInvestor}" varStatus="itemStatus">
                     <div data-schedule-date="investor" id="investor-form-${itemStatus.index + 1}" class="form-group-invest">
                         <div style="display: flex; justify-content: space-between; align-items: center">
@@ -83,7 +83,7 @@
                 <input type="hidden" id="investor-number" name="investor-number" value="${listInvestor.size()}">
                 <input type="hidden" value="${param.programId}" name="programId" />
                 <button type="button" class="mt-5 btn btn-primary" onclick="addRow()">Add investor</button>
-                
+
                 <button type="submit" id="submit-button" class="mt-5 btn btn-primary container-fluid">Submit</button>
             </form>
         </main>
@@ -101,7 +101,7 @@
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
 
-    <script>
+    <<script>
                     let currentSizeForm = ${listInvestor.size()};
                     let i = (currentSizeForm === 0 ? 1 : currentSizeForm);
                     var isFormChanged = false;
@@ -257,15 +257,15 @@
                     const formGroups = formEl.querySelectorAll('.form-group');
 
                     formGroups.forEach((formGroup, index) => {
-                            const counter = index + 1;
-                            const inputEls = formGroup.querySelectorAll('input');
-                            const textAreaEl = formGroup.querySelector('textarea');
-                            const inputElAndTextArea = [...inputEls, textAreaEl];
-                            inputElAndTextArea.forEach(el => {
-                                el.onchange = () => {
-                                    formChange(counter);
-                                }
-                            })
+                        const counter = index + 1;
+                        const inputEls = formGroup.querySelectorAll('input');
+                        const textAreaEl = formGroup.querySelector('textarea');
+                        const inputElAndTextArea = [...inputEls, textAreaEl];
+                        inputElAndTextArea.forEach(el => {
+                            el.onchange = () => {
+                                formChange(counter);
+                            }
+                        })
                     })
 
     </script>

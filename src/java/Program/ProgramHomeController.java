@@ -6,8 +6,6 @@
 package Program;
 
 import Dashboard.DashBoardService;
-import Donate.Donate;
-import Donate.DonateService;
 import News.News;
 import News.NewsService;
 import Operator.Operator;
@@ -22,8 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
 @WebServlet(name = "ProgramHomeController", urlPatterns = {"/home"})
 public class ProgramHomeController extends HttpServlet {
 
@@ -31,8 +27,6 @@ public class ProgramHomeController extends HttpServlet {
     private final NewsService newsService = new NewsService();
     private final OperatorService operatorService = new OperatorService();
     private final DashBoardService dashBoardService = new DashBoardService();
-    private final DonateService donateService = new DonateService();
-
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -64,7 +58,6 @@ public class ProgramHomeController extends HttpServlet {
         List<Program> listPrograms = service.getListProgram(1, 6);
         List<News> getListNews = newsService.getListNews(1, 3);
         List<OperatorVO> operators = operatorService.getOperatorsHome();
-        List<Donate> donate = donateService.getTestimonial();
         double totalRaised = dashBoardService.getTotal("all");
         double totalGoal = dashBoardService.getTotalGoal();
 
@@ -76,10 +69,9 @@ public class ProgramHomeController extends HttpServlet {
 
         req.setAttribute("operators", operators);
         req.setAttribute("totalRaised", totalRaised);
-        req.setAttribute("totalGoal", totalGoal);
+         req.setAttribute("totalGoal", totalGoal);
         req.setAttribute("listPrograms", listPrograms);
         req.setAttribute("getListNews", getListNews);
-        req.setAttribute("donations", donate);
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 

@@ -3,12 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Investor;
 
 
@@ -165,7 +159,6 @@ public class InvestorController extends HttpServlet {
 
             listInvestor.add(new Investor((investorId != null ? Integer.parseInt(investorId) : 0), programId, investorName, investorImg, investorDes, contact, qualifyImg, legalRepresent));
 
-//            listOperator.add(new Operator((operatorId != null ? Integer.parseInt(operatorId) : 0), programId, operatorDate, operatorDetailDes, actualExpense, activitiesImage, bilImage));
         }
 
         List<Investor> listInvestorClone = deepClone(listInvestor);

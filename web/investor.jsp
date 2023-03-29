@@ -36,10 +36,10 @@
                 <div class="row">
 
                 </div>
-                <input type="hidden" value="" name="schedule__date" />
-                                            ***              *
+                <input type="hidden" value="${item.toString()}" name="schedule_${counter.index}_date" />
+
             </div>
-            <form method="POST" action="/OJTMock/investor?action=register" id="form" class="container" enctype="multipart/form-data">
+            <form method="POST" action="/OJT_Mock/investor?action=register" id="form" class="container" enctype="multipart/form-data">
                 <div data-schedule-date="investor" id="investor-form-1" class="form-group-invest">
                     <h4 class="text-light">Investor for Program</h4>
                     <div class="form-group">
@@ -51,25 +51,121 @@
                         <textarea type="text" class="form-control" Jung id="investorDes" name="investorDes-1" aria-describedby="detailDescription" placeholder="Enter Investor Description" style="height: 140px; min-height: 36px" name="detailDes-1" required></textarea>
                         <label for="contact">Contact</label>
                         <input type="number" class="form-control form-control-lg" id="contact" name="contact-1" maxlength="10" placeholder="Enter Contact" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" required>
-                        <label for="investAvatar">Investor Images</label>
-                        <input type="file" class="form-control-file" id="investAvatar" name="investAvatar-1" required accept="image/*">
-                        <label for="qualifyImg">Qualify Images</label>
-                        <input type="file" class="form-control-file" id="qualifyImg" name="qualifyImg-1" required accept="image/*">
-
+                        <label for="investAvatar-1">Investor Images</label>
+                        <input type="file" class="form-control-file" id="investAvatar-1" name="investAvatar-1" required accept="image/*">
+                        <div id="investAvatar-preview-section" class="row">
+                    
+                        </div>
+                        <label for="qualifyImg-1">Qualify Images</label>
+                        <input type="file" class="form-control-file" id="qualifyImg-1" name="qualifyImg-1" required accept="image/*">
+                        <div id="qualifyImg-preview-section" class="row">
+                    
+                        </div>
                     </div>
                     <div class="row">
 
                     </div>
-                    <input type="hidden" value="" name="schedule__date" />
-                                                 ***            *
+                    <input type="hidden" value="${item.toString()}" name="schedule_${counter.index}_date" />
+
                 </div>
 
                 <input type="hidden" id="investor-number" name="investor-number" value="1">
-                <input type="hidden" value="" name="programId" />
-                <button type="button" class="mt-5 btn btn-primary" onclick="">Add investor</button>
-                <button type="button" class="mt-5 btn btn-danger" onclick="">Delete investor</button>
+                <input type="hidden" value="${programId}" name="programId" />
+                <button type="button" class="mt-5 btn btn-primary" onclick="addRow()">Add investor</button>
+                <button type="button" class="mt-5 btn btn-danger" onclick="deleteRow()">Delete investor</button>
                 <button type="submit" class="mt-5 btn btn-primary container-fluid">Submit</button>
             </form>
         </main>
     </body>
-</html
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/parallax/parallax.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <script>
+        let i = 1;
+        const investAvatarEl = document.getElementById("investAvatar-1");
+        const qualifyImgEl = document.getElementById("qualifyImg-1");
+        const investAvatarPreviewEl = document.getElementById("investAvatar-preview-section");
+        const qualifyImgPreviewEl = document.getElementById("qualifyImg-preview-section");
+        const formEl = document.getElementById("form");
+
+        const onFileInputChange = (previewElement) => {
+            return (e) => {
+                const { files } = e.target;
+                previewElement.innerHTML = ``;
+
+                for ( const file of files ) {
+                    const objectUrl = URL.createObjectURL(file);
+
+                    const imagePreviewEl = document.createElement("img");
+
+                    imagePreviewEl.classList.add('col-sm-12', 'col-md-6', 'col-lg-4', 'image-preview');
+                    imagePreviewEl.src = objectUrl;
+
+                    previewElement.append(imagePreviewEl);
+                }  
+            }
+        }
+
+        investAvatarEl.onchange = onFileInputChange(investAvatarPreviewEl);
+        qualifyImgEl.onchange = onFileInputChange(qualifyImgPreviewEl);
+
+
+        function addRow() {
+            var investorForm = $('.investor-form').clone();
+            investorForm.css('display', 'block');
+            investorForm.attr("id", "investor-form-" + (i + 1));
+            investorForm.removeClass('investor-form');
+            investorForm.find('#investorName').attr('name', 'investorName-' + (i + 1));
+            investorForm.find('#legalRepresent').attr('name', 'legalRepresent-' + (i + 1));
+            investorForm.find('#investorDes').attr('name', 'investorDes-' + (i + 1));
+            investorForm.find('#investAvatar').attr({
+                name: 'investAvatar-' + (i + 1),
+                id: 'investAvatar-' + (i + 1)
+            });
+            investorForm.find('#qualifyImg').attr({
+                name: 'qualifyImg-' + (i + 1),
+                id: `qualifyImg-` + (i + 1)
+            });
+            investorForm.find('#contact').attr('name', 'contact-' + (i + 1));
+            const newImageAvatarPreviewEl = document.createElement('div');
+            newImageAvatarPreviewEl.classList.add('row');
+            newImageAvatarPreviewEl.id = `investAvatar-preview-section-${i + 2}`;
+            
+            const newQualifyImgPreviewEl = document.createElement('div');
+            newQualifyImgPreviewEl.classList.add('row');
+            newQualifyImgPreviewEl.id = `qualifyImg-preview-section-${i + 2}`;
+            
+            $('#investor-form-' + i).after(investorForm);
+                        
+            investorForm.find(`#investAvatar-` + (i + 1)).after(newImageAvatarPreviewEl);
+            investorForm.find(`#qualifyImg-` + (i + 1)).after(newQualifyImgPreviewEl);
+            
+            investorForm.find(`#investAvatar-` + (i + 1)).on('change', onFileInputChange(newImageAvatarPreviewEl));
+            investorForm.find(`#qualifyImg-` + (i + 1)).on('change', onFileInputChange(newQualifyImgPreviewEl));
+            
+            i++;
+            $('#investor-number').val(i);
+        }
+
+        function deleteRow() {
+            var investFormGroup = $('#form').find('.form-group-invest');
+            if (investFormGroup.length > 1) {
+                investFormGroup.last().remove();
+                i--;
+                $('#investor-number').val(i);
+            }
+        }
+        
+        
+    </script>
+</html>

@@ -8,16 +8,13 @@ package Program;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- *
- * @author DINH TRUNG
- */
 @Getter
 @Setter
 public class ProgramVO extends Program {
