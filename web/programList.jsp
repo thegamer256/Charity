@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>Popular Causes</h2>
+                <h2>Our Programs</h2>
             </div>
             <div class="col-12">
                 <a href="home">Home</a>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Healthy Food</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                        <p>eating a healthy food can have numerous benefits for both physical and mental health, and can improve overall quality of life.</p>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Pure Water</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                        <p>Pure Water plays a crucial role in maintaining human health and hydration.</p>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Health Care</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                        <p>Healthcare also plays an essential role in promoting public health by preventing the spread of infectious diseases and promoting healthy lifestyles.</p>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Primary Education</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                        <p>Education is key to breaking the cycle of poverty. Primary education provides children with the tools they need to become self-sufficient and contribute to society. </p>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Residence Facilities</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                        <p>residence facilities can offer a convenient, social, secure, and affordable living option for a variety of people, depending on their needs and circumstances.</p>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Social Care</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                        <p>social care plays an important role in promoting independence, improving well-being, reducing isolation, and providing respite for caregivers. </p>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                         <div class="row g-3 mt-2">
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" name="condition_programName" value="${param.condition_programName}" placeholder="Enter program name" style="height: 100%">
+            x                       <input type="text" class="form-control" name="condition_programName" value="${param.condition_programName}" placeholder="Enter program name" style="height: 100%">
                             </div>
                             <div class="col-md-2">
                                 <button type="submit" class="btn btn-custom btn-block">Search</button>
