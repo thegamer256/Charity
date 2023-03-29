@@ -242,7 +242,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <div class="col-lg-4 col-md-6">
                 <div class="facts-item">
                     <i class="flaticon-kindness"></i>
@@ -250,7 +250,7 @@
                         <h3 class="facts-dollar" data-toggle="counter-up">
 
                             <fmt:formatNumber type = "number" value = "${totalGoal}" /> "đ"
-                            
+
                         </h3>
                         <p>Our Goal</p>
                     </div>
@@ -460,69 +460,27 @@
 <div class="testimonial">
     <div class="container">
         <div class="section-header text-center">
-            <p>Testimonial</p>
-            <h2>What people are talking about our charity activities</h2>
+            <p>Encouragement</p>
+            <h2>What people are talking about our charity program</h2>
         </div>
         <div class="owl-carousel testimonials-carousel">
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="img/testimonial-1.jpg" alt="Image">
-                    <div class="testimonial-name">
-                        <h3>Person Name</h3>
-                        <p>Profession</p>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu
-                        metus tortor, auctor id gravid vivera quis
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="img/testimonial-2.jpg" alt="Image">
-                    <div class="testimonial-name">
-                        <h3>Person Name</h3>
-                        <p>Profession</p>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu
-                        metus tortor, auctor id gravid vivera quis
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="img/testimonial-3.jpg" alt="Image">
-                    <div class="testimonial-name">
-                        <h3>Person Name</h3>
-                        <p>Profession</p>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu
-                        metus tortor, auctor id gravid vivera quis
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="img/testimonial-4.jpg" alt="Image">
-                    <div class="testimonial-name">
-                        <h3>Person Name</h3>
-                        <p>Profession</p>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu
-                        metus tortor, auctor id gravid vivera quis
-                    </p>
-                </div>
+                <c:forEach var="item" items="${donations}">
+                    <div class="testimonial-item">
+                        <div class="testimonial-profile">
+                            <img src="${item.avatar}" alt="Image">
+                            <div class="testimonial-name">
+                                <h3>${item.name}</h3>
+                                <p>${item.donate_date}</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                ${item.message}
+                            </p>
+
+                        </div> 
+                    </div>                
+                </c:forEach>
             </div>
         </div>
     </div>

@@ -40,6 +40,9 @@ public class DonateService {
     public List<Donate> getListDonation() {
         return dao.getListDonation();
     }
+     public List<Donate> getTestimonial() {
+        return dao.getTestimonial();
+    }
     
     public List<Donate> getDonateHistoryByUserId(int programId) {
         return dao.getDonateHistoryByUserId(programId);
