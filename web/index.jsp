@@ -24,12 +24,9 @@
                 <div class="carousel-text">
                     <h1>Let's be kind for children</h1>
                     <p>
-                        Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac
-                        consequat at lectus in malesuada
+                        Let's cherish children's innocence by treating them kindly, fostering empathy and compassion, 
+                        and nurturing a better future for all.
                     </p>
-                    <div class="carousel-btn">
-                        <a class="btn btn-custom" href="">Donate Now</a>
-                    </div>
                 </div>
             </div>
             <div class="carousel-item">
@@ -39,13 +36,9 @@
                 <div class="carousel-text">
                     <h1>Get Involved with helping hand</h1>
                     <p>
-                        Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci
-                        sodales varius fermentum, tortor
+                        Join helping hand and make a positive impact in your community through volunteering and donations. 
+                        Every act of kindness counts.
                     </p>
-                    <div class="carousel-btn">
-                        <a class="btn btn-custom" href="">Donate Now</a>
-
-                    </div>
                 </div>
             </div>
             <div class="carousel-item">
@@ -55,8 +48,8 @@
                 <div class="carousel-text">
                     <h1>Bringing smiles to millions</h1>
                     <p>
-                        Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula
-                        euismod quam. Proin pellentesque odio
+                        Through acts of kindness and generosity, we have the power to bring smiles to the faces of millions 
+                        and create a positive impact on the world.
                     </p>
                 </div>
             </div>
