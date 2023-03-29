@@ -16,8 +16,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+        <!-- Favicon icon -->
+        <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"

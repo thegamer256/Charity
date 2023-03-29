@@ -288,12 +288,12 @@
 <!-- Causes End -->
 
 
-<!-- Event Start -->
+<!-- Operator Start -->
 <div class="event">
     <div class="container">
         <div class="section-header text-center">
-            <p>Upcoming Events</p>
-            <h2>Be ready for our upcoming charity events</h2>
+            <p>Program Operators</p>
+            <h2>Check activities of programs here</h2>
         </div>
         <div class="row">
             <c:forEach var="item" items="${operators}">
@@ -334,7 +334,7 @@
         </div>
     </div>
 </div>
-<!-- Event End -->
+<!-- Operator End -->
 
 
 <!-- Team Start -->

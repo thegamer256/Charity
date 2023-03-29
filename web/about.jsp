@@ -16,7 +16,7 @@
                 <h2>About Us</h2>
             </div>
             <div class="col-12">
-                <a href="">Home</a>
+                <a href="home">Home</a>
                 <a href="">About Us</a>
             </div>
         </div>
