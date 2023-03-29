@@ -44,7 +44,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Healthy Food</h3>
-                        <p>Eating a healthy food can have numerous benefits for both physical and mental health, and can improve overall quality of life.</p>
+                        <p>Eating healthy food can have numerous benefits for both physical and mental health, and can improve overall quality of life.</p>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Health Care</h3>
-                        <p>Healthcare also plays an essential role in promoting public health by preventing the spread of infectious diseases and promoting healthy lifestyles.</p>
+                        <p>Health Care also plays an essential role in promoting public health.</p>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                         <div class="row g-3 mt-2">
 
                             <div class="col-md-10">
-            x                       <input type="text" class="form-control" name="condition_programName" value="${param.condition_programName}" placeholder="Enter program name" style="height: 100%">
+                                <input type="text" class="form-control" name="condition_programName" value="${param.condition_programName}" placeholder="Enter program name" style="height: 100%">
                             </div>
                             <div class="col-md-2">
                                 <button type="submit" class="btn btn-custom btn-block">Search</button>
@@ -171,14 +171,14 @@
                             </div>
                             <div class="progress-text">
                                 <p><strong>Raised:</strong>$<fmt:formatNumber type = "number" 
-                                              groupingUsed = "false" value = "${(item.raisedAmount)}" /></p>
+                                                  groupingUsed = "false" value = "${(item.raisedAmount)}" /></p>
                                 <p><strong>Goal:</strong> $<fmt:formatNumber type = "number" 
-                                              groupingUsed = "false" value = "${(item.goalAmount)}" /> </p>
+                                                  groupingUsed = "false" value = "${(item.goalAmount)}" /> </p>
                             </div>
                         </div>
                         <div class="causes-text" style="height: 6em">
                             <h3><a href="program?action=detail&programId=${item.programId}">${item.programName}</a></h3>
-                             <h6>${item.destination.city} - ${item.destination.province}</h6>
+                            <h6>${item.destination.city} - ${item.destination.province}</h6>
                             <p>${item.shortDes}</p>
                         </div>
                         <div class="causes-btn" style="padding: 10px">

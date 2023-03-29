@@ -44,7 +44,7 @@
 
 
             </div>
-            <form method="POST" action="/ojt/investor?action=update&programId=${param.programId}" id="form" class="container" enctype="multipart/form-data">
+            <form method="POST" action="/OJT_Mock/investor?action=update&programId=${param.programId}" id="form" class="container" enctype="multipart/form-data">
                 <c:forEach var="item" items="${listInvestor}" varStatus="itemStatus">
                     <div data-schedule-date="investor" id="investor-form-${itemStatus.index + 1}" class="form-group-invest">
                         <div style="display: flex; justify-content: space-between; align-items: center">

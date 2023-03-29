@@ -10,7 +10,7 @@
     <body>
         <%@include file="/includes/navbar.jsp"%>
         <main>
-            <form method="POST" action="/ojt/news-manage?action=update&newsId=${news.newsId}" id="form" class="container" enctype="multipart/form-data">
+            <form method="POST" action="/OJT_Mock/news-manage?action=update&newsId=${news.newsId}" id="form" class="container" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="newsTitle">News Title</label>
                     <input type="text" class="form-control form-control-lg" id="newsTitle" aria-describedby="newsTitle" value="${news.newsTitle}" name="newsTitle" placeholder="Enter News Title" required>

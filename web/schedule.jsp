@@ -13,8 +13,8 @@
             <h2 class="text-center text-light mt-10">Program <span class="font-weight-bold">${programName}</span></h2>
 
             <form method="POST" action="${action.equals("register") ? 
-                "/ojt/schedule?action=register" :
-                "/ojt/schedule?action=update" 
+                "/OJT_Mock/schedule?action=register" :
+                "/OJT_Mock/schedule?action=update" 
             }" id="form" class="container my-0" enctype="multipart/form-data">
                 <input type="hidden" value="${dateBetween.size()}" name="scheduleSize" />    
                 <input type="hidden" value="${programId}" name="programId" />

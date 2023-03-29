@@ -11,8 +11,8 @@
        <%@include file="/includes/navbar.jsp"%>
        <main>
             <form method="POST" action="${action.equals("register") ? 
-                "/ojt/program?action=register" :
-                "/ojt/program?action=update" 
+                "/OJT_Mock/program?action=register" :
+                "/OJT_Mock/program?action=update" 
             }" id="form" class="container"  enctype="multipart/form-data">
                <div class="form-group">
                    <label for="programName">Program Name</label>

@@ -27,15 +27,21 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="donate-form">
-                        <form>
+                        <c:if test="${error!=null}">
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <strong>${error}</strong>
+                            </div>
+                        </c:if>
+                        <form method="POST" action="login">
                             <div class="control-group">
-                                <input type="text" class="form-control" placeholder="Username" required="required" />
+                                <input type="text" name="username" class="form-control" placeholder="Username" required="required" />
                             </div>
                             <div class="control-group">
-                                <input type="password" class="form-control" placeholder="Password" required="required" />
+                                <input type="password" id="password" name="password" class="form-control" minlength="6" placeholder="Password" required="required" />
                             </div>
                             <div class="control-group">
-                                <input type="checkbox" id="rememberme" class="">
+                                <input type="checkbox" id="rememberme" name="remember" value="checked">
                                 <label for="rememberme" class="remember" style="color: white">Remember me</label><br>
                             </div>
                             <div>

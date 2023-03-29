@@ -178,13 +178,13 @@
                                                                                 <td style="padding-top: 0.6em">
                                                                                     <div class="mt-1" >
                                                                                         <c:if test="${item.role == 1}">
-                                                                                            <form method="POST" action="/ojt/user-manage?action=manager">
+                                                                                            <form method="POST" action="/OJT_Mock/user-manage?action=manager">
                                                                                                 <input  type="hidden" class="form-control"  name="accountId"  value="${item.accountId}" >
                                                                                                 <button class="btn btn-success btn-sm text-white m-0" type="submit">ENABLE MANAGER</button>
                                                                                             </form>
                                                                                         </c:if>
                                                                                         <c:if test="${item.role == 2}">
-                                                                                            <form method="POST" action="/ojt/user-manage?action=user">
+                                                                                            <form method="POST" action="/OJT_Mock/user-manage?action=user">
                                                                                                 <input  type="hidden" class="form-control"  name="accountId"  value="${item.accountId}" >
                                                                                                 <button class="btn btn-danger btn-sm text-white m-0" type="submit">DISABLE MANAGER</button>
                                                                                             </form>
