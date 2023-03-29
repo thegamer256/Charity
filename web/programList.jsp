@@ -34,7 +34,7 @@
     <div class="container">
         <div class="section-header text-center">
             <p>What We Do?</p>
-            <h2>We believe that we can save more lifes with you</h2>
+            <h2>We believe that we can save more life with you</h2>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Healthy Food</h3>
-                        <p>eating a healthy food can have numerous benefits for both physical and mental health, and can improve overall quality of life.</p>
+                        <p>Eating a healthy food can have numerous benefits for both physical and mental health, and can improve overall quality of life.</p>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Residence Facilities</h3>
-                        <p>residence facilities can offer a convenient, social, secure, and affordable living option for a variety of people, depending on their needs and circumstances.</p>
+                        <p>Residence facilities can offer a convenient, social, secure, and affordable living option for a variety of people, depending on their needs and circumstances.</p>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Social Care</h3>
-                        <p>social care plays an important role in promoting independence, improving well-being, reducing isolation, and providing respite for caregivers. </p>
+                        <p>Social care plays an important role in promoting independence, improving well-being, reducing isolation, and providing respite for caregivers. </p>
                     </div>
                 </div>
             </div>
