@@ -58,36 +58,12 @@
                         Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula
                         euismod quam. Proin pellentesque odio
                     </p>
-                    <div class="carousel-btn">
-                        <a class="btn btn-custom" href="">Donate Now</a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Carousel End -->
-
-<!-- Video Modal Start-->
-<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <!-- 16:9 aspect ratio -->
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
-                            allow="autoplay"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Video Modal End -->
-
 
 <!-- About Start -->
 <div class="about">
@@ -164,7 +140,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Healthy Food</h3>
-                        <p>Eating a healthy food can have numerous benefits for both physical and mental health, and can improve overall quality of life.</p>
+                        <p>Eating healthy food can have numerous benefits for both physical and mental health, and can improve overall quality of life.</p>
                     </div>
                 </div>
             </div>
@@ -186,7 +162,7 @@
                     </div>
                     <div class="service-text">
                         <h3>Health Care</h3>
-                        <p>Healthcare also plays an essential role in promoting public health by preventing the spread of infectious diseases and promoting healthy lifestyles.</p>
+                        <p>Health Care also plays an essential role in promoting public health.</p>
                     </div>
                 </div>
             </div>
