@@ -23,8 +23,6 @@
                     <a href="about.jsp" class="nav-item nav-link">About</a>
                     <a href="program?action=list" class="nav-item nav-link">Program</a>
                     <a href="news?action=list" class="nav-item nav-link">News</a>
-                    <a href="contact.jsp" class="nav-item nav-link">Contact</a>
-                    <a href="donate.jsp" class="nav-item nav-link">Donate</a>
 
                     <c:if test="${sessionScope.user !=null}">
                         <a href="contact" class="nav-item nav-link">Contact</a>

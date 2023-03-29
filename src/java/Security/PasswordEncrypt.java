@@ -87,7 +87,7 @@ public class PasswordEncrypt {
     
      public static void main(String[] args)  {  
         /* Plain text Password. */  
-        String password = "123456";  
+        String password = "111111";  
           
         /* generates the Salt value. It can be stored in a database. */  
         String saltvalue = getSaltvalue(30);  
@@ -103,7 +103,7 @@ public class PasswordEncrypt {
         System.out.println("Salt value = " + saltvalue);  
           
         /* verify the original password and encrypted password */  
-        Boolean status = verifyUserPassword("123456","2r4hIGPyTnOjKM5WYb3rZHqYWzBijBq0DwMlstCHTn0=","FOTumFjx0qzGuTMaZe8X");  
+        Boolean status = verifyUserPassword("111111","nQrYmD5tPi6lJiSHOQoP9x4dmD0nw/c7supMV6bIB0w=","uzxLzt2q98WOJIBN1e9L");  
         if(status==true)  
             System.out.println("Password Matched!!");  
         else  
