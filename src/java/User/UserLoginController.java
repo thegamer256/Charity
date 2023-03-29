@@ -46,8 +46,7 @@ public class UserLoginController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //        Kiem tra cookie
         Cookie[] cookie = request.getCookies();
         String username = null;
@@ -62,8 +61,6 @@ public class UserLoginController extends HttpServlet {
         
         if (username != null) {
             Account account = new UserDAO().checkExistedUsername(username);
-            
-            
             
             if(account!=null) {
                 request.getSession().setAttribute("account", account);
@@ -85,14 +82,16 @@ public class UserLoginController extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
+     * @param req
+     * @param resp
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         HttpSession session = request.getSession();
         String urlHistory = (String) session.getAttribute("urlHistory");
 
@@ -126,26 +125,36 @@ public class UserLoginController extends HttpServlet {
             request.setAttribute("error", "Username or password is incorrect");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
+
     }
 
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPut(req, resp); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doDelete(req, resp); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

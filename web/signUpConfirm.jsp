@@ -53,9 +53,9 @@
                     <div class="donate-form">
                         <form method="POST" action="donate?action=confirm">
                             <div class="control-group">
-                                <input type="hidden" class="form-control" name="amount" value=""/>
-                                <input type="hidden" class="form-control" name="message" value=""/>
-                                <input type="hidden" class="form-control" name="programId" value=""/>
+                                <input type="hidden" class="form-control" name="amount" value="${amount}"/>
+                                <input type="hidden" class="form-control" name="message" value="${message}"/>
+                                <input type="hidden" class="form-control" name="programId" value="${programId}"/>
                                 <input type="text" class="form-control" name="otp" placeholder="Confirm your OTP code" required="required" />
                             </div>
 

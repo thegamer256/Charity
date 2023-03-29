@@ -8,10 +8,10 @@ package User;
 import Security.PasswordEncrypt;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +25,7 @@ import shared.SendMail;
  *
  * @author LE ANH TUAN
  */
+@MultipartConfig
 @WebServlet(name = "UserSignUpController", urlPatterns = {"/signup"})
 public class UserSignUpController extends HttpServlet {
 

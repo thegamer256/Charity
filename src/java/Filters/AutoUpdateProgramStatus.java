@@ -19,8 +19,8 @@ import javax.servlet.annotation.WebFilter;
  */
 
 @WebFilter(
-    urlPatterns = "/*",
-    filterName = "autoUpdate"
+        urlPatterns = "/*",
+        filterName = "autoUpdate"
 )
 public class AutoUpdateProgramStatus implements Filter {
 
@@ -43,4 +43,5 @@ public class AutoUpdateProgramStatus implements Filter {
     public void destroy() {
         Filter.super.destroy(); //To change body of generated methods, choose Tools | Templates.
     }
+
 }

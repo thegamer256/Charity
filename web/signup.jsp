@@ -113,8 +113,6 @@
     </div>
     <!-- Donate End -->
 
-
-
     <!-- Footer Start -->
     <div class="footer">
         <div class="container">

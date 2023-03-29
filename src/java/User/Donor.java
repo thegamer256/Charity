@@ -40,8 +40,7 @@ public class Donor extends Account {
         this.name = name;
         this.avatar = avatar;
     }
-
-    
+  
 public Donor(int accountId, String username, String password, int role, String salt, String email, String city, String province, String address, String name, String avatar, String phoneNumber, String dob, String bank_account) {
         super(accountId, username, password, role, salt);
         this.email = email;
@@ -54,7 +53,6 @@ public Donor(int accountId, String username, String password, int role, String s
         this.dob = dob;
         this.bank_account = bank_account;
     }
-    
     
     public Donor(int accountId, String username, String password, int role, String salt, int donorId, String email, String city, String province, String address, String name, String avatar, String phoneNumber, String dob, String bank_account) {
         super(accountId, username, password, role, salt);
@@ -154,4 +152,5 @@ public Donor(int accountId, String username, String password, int role, String s
     public String toString() {
         return "Donor{" + "donorId=" + donorId + ", email=" + email + ", city=" + city + ", province=" + province + ", address=" + address + ", name=" + name + ", avatar=" + avatar + ", phoneNumber=" + phoneNumber + ", dob=" + dob + ", bank_account=" + bank_account + '}';
     }
+
 }
