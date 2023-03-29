@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author toten
+ * @author LE ANH TUAN
  */
 public class DBContext {
 
@@ -41,12 +41,6 @@ public class DBContext {
 
         return DriverManager.getConnection(url, userID, password);
     }
-
-//    private final String serverName = "LEDUC\\MAYAO";
-//    private final String dbName = "ShoppingOnline2";
-//    private final String portNumber = "1433";
-//    private final String userID = "sa";
-//    private final String password = "13072002";
 
     public static void main(String[] args) {
         try {
