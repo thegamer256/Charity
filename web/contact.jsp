@@ -51,7 +51,7 @@
                 </c:if>
             </div>
                 <!--<div id="failed">${failedMessage}</div>-->
-            <form action="/OJT_Mock/contact" method="POST" id="contactForm">
+            <form action="/OJTMock/contact" method="POST" id="contactForm">
                 <div class="control-group">
                     <input type="text" class="form-control" id="subject" name="title" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
                     <p class="help-block text-danger"></p>

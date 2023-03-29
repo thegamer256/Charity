@@ -34,7 +34,7 @@
 
                 </div>
             </div>
-            <form method="POST" action="/OJT_Mock/operator?action=update" id="operator-form-main" class="container" style="margin-top: 12em" enctype="multipart/form-data">
+            <form method="POST" action="/OJTMock/operator?action=update" id="operator-form-main" class="container" style="margin-top: 12em" enctype="multipart/form-data">
 
                 <c:choose>
                     <c:when test="${not empty operators}">

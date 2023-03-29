@@ -58,7 +58,9 @@
                         <li class="nav-item">
                             <a href="dashboard?action=user" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">User</span></a>
                         </li>
-
+                        <li class="nav-item">
+                            <a href="dashboard?action=contact" class="nav-link"><span class="pcoded-micon"><i class="feather icon-message-circle"></i></span><span class="pcoded-mtext">Message</span></a>
+                        </li>
 
                     </ul>
 
@@ -178,13 +180,13 @@
                                                                                 <td style="padding-top: 0.6em">
                                                                                     <div class="mt-1" >
                                                                                         <c:if test="${item.role == 1}">
-                                                                                            <form method="POST" action="/OJT_Mock/user-manage?action=manager">
+                                                                                            <form method="POST" action="/OJTMock/user-manage?action=manager">
                                                                                                 <input  type="hidden" class="form-control"  name="accountId"  value="${item.accountId}" >
                                                                                                 <button class="btn btn-success btn-sm text-white m-0" type="submit">ENABLE MANAGER</button>
                                                                                             </form>
                                                                                         </c:if>
                                                                                         <c:if test="${item.role == 2}">
-                                                                                            <form method="POST" action="/OJT_Mock/user-manage?action=user">
+                                                                                            <form method="POST" action="/OJTMock/user-manage?action=user">
                                                                                                 <input  type="hidden" class="form-control"  name="accountId"  value="${item.accountId}" >
                                                                                                 <button class="btn btn-danger btn-sm text-white m-0" type="submit">DISABLE MANAGER</button>
                                                                                             </form>
