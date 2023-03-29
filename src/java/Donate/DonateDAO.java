@@ -114,7 +114,7 @@ public class DonateDAO {
             PreparedStatement ps;
             ResultSet rs;
 
-            String query = "select dnt.*, dn.name, dn.avatar, dn.email, (select PROGRAM_NAME from program where program_id=dnt.program_id) as program_name from donate dnt, donor dn where dnt.donor_id=dn.donor_id order by donate_date desc";
+            String query = "select TOP 9 dnt.*, dn.name, dn.avatar, dn.email, (select PROGRAM_NAME from program where program_id=dnt.program_id) as program_name from donate dnt, donor dn where dnt.donor_id=dn.donor_id order by donate_date desc";
             conn = new DBContext().getConnection();
 
             ps = conn.prepareStatement(query);
