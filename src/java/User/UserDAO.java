@@ -22,6 +22,7 @@ import java.util.logging.Logger;
  * @author LE ANH TUAN
  */
 public class UserDAO {
+
     public int signUpAccount(Account acc) {
         try {
             Connection conn;
@@ -103,13 +104,13 @@ public class UserDAO {
             Account ud = null;
             while (rs.next()) {
                 ud = (new Donor(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"), rs.getInt("role_id"), rs.getString("salt"),
-                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"), 
+                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"),
                         rs.getString("avatar"), rs.getString("phone_number"), rs.getString("dob"), rs.getString("bank_account")));
 
                 break;
 
             }
-            
+
             if (ud != null) {
                 Boolean status = PasswordEncrypt.verifyUserPassword(password, ud.getPassword(), ud.getSalt());
                 if (status == true) {
@@ -145,7 +146,83 @@ public class UserDAO {
             Account userAcc = null;
             while (rs.next()) {
                 userAcc = (new Donor(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"), rs.getInt("role_id"), rs.getString("salt"),
-                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"), 
+                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"),
+                        rs.getString("avatar"), rs.getString("phone_number"), rs.getString("dob"), rs.getString("bank_account")));
+
+            }
+
+            if (userAcc != null) {
+                userAcc.setPassword(null);
+                userAcc.setSalt(null);
+                return userAcc;
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+//    public Account checkExistedEmail(String email) {
+//        try {
+//            Connection conn;
+//            PreparedStatement ps;
+//            ResultSet rs;
+//
+//            String query = "select acc.username, acc.password, acc.role_id, acc.salt, don.* from donor as don, account as acc where acc.account_id=don.account_id and email=?";
+//
+//            conn = new DBContext().getConnection();
+//
+//            ps = conn.prepareStatement(query);
+//            ps.setString(1, email);
+//
+//            rs = ps.executeQuery();
+//
+//            Account userAcc = null;
+//            while (rs.next()) {
+//                userAcc = (new Donor(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"), rs.getInt("role_id"), rs.getString("salt"),
+//                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"),
+//                        rs.getString("avatar"), rs.getString("phone_number"), rs.getString("dob"), rs.getString("bank_account")));
+//
+//            }
+//
+//            if (userAcc != null) {
+//                userAcc.setPassword(null);
+//                userAcc.setSalt(null);
+//                return userAcc;
+//
+//            }
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return null;
+//    }
+
+    public Account checkExistedPhoneNumber(String phoneNumber) {
+        try {
+            Connection conn;
+            PreparedStatement ps;
+            ResultSet rs;
+
+            String query = "select acc.username, acc.password, acc.role_id, acc.salt, don.* from donor as don, account as acc where acc.account_id=don.account_id and phone_number=?";
+
+            conn = new DBContext().getConnection();
+
+            ps = conn.prepareStatement(query);
+            ps.setString(1, phoneNumber);
+
+            rs = ps.executeQuery();
+
+            Account userAcc = null;
+            while (rs.next()) {
+                userAcc = (new Donor(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"), rs.getInt("role_id"), rs.getString("salt"),
+                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), rs.getString("address"), rs.getString("name"),
                         rs.getString("avatar"), rs.getString("phone_number"), rs.getString("dob"), rs.getString("bank_account")));
 
             }
@@ -184,8 +261,8 @@ public class UserDAO {
             Account userAcc = null;
             while (rs.next()) {
                 userAcc = (new Donor(rs.getInt("account_id"), rs.getString("username"), null, rs.getInt("role_id"), null,
-                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"), 
-                        rs.getString("address"), rs.getString("name"), rs.getString("avatar"), rs.getString("phone_number"), 
+                        rs.getInt("donor_id"), rs.getString("email"), rs.getString("city"), rs.getString("province"),
+                        rs.getString("address"), rs.getString("name"), rs.getString("avatar"), rs.getString("phone_number"),
                         rs.getString("dob"), rs.getString("bank_account")));
 
             }

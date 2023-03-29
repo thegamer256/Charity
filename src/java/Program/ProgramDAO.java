@@ -359,7 +359,7 @@ public class ProgramDAO {
                 switch (entry.getKey()) {
                     case "condition_authorName":
                         if (entry.getValue() != null) {
-                            query += " and dn.name like '%" + entry.getValue() + " %'";
+                            query += " and dn.name like '%" + entry.getValue() + "%'";
                         }
                         break;
 

@@ -105,10 +105,28 @@ public class UserSignUpController extends HttpServlet {
         Account accountSignUp = new Account(0, username, password, 3, null);
         Donor donorSignUp = new Donor(0, username, password, 3, null, email, city, province, address, name, null, phoneNumber, dob, bankAccount);
 
+//        Check user name existed
         if (userDAO.checkExistedUsername(username) != null) {
             req.setAttribute("signUpFailMessage", "Username existed");
             req.setAttribute("userSignUp", donorSignUp);
             req.getRequestDispatcher("signup.jsp").forward(req, resp);
+            return;
+        }
+
+//        Check email existed
+//        if (userDAO.checkExistedEmail(email) != null) {
+//            req.setAttribute("signUpFailMessage", "Email existed");
+//            req.setAttribute("userSignUp", donorSignUp);
+//            req.getRequestDispatcher("signup.jsp").forward(req, resp);
+//            return;
+//        }
+
+//        Check phonenumber existed
+        if (userDAO.checkExistedPhoneNumber(phoneNumber) != null) {
+            req.setAttribute("signUpFailMessage", "Phone number existed");
+            req.setAttribute("userSignUp", donorSignUp);
+            req.getRequestDispatcher("signup.jsp").forward(req, resp);
+            return;
         }
 
         //        Check password confirm is true
@@ -171,8 +189,6 @@ public class UserSignUpController extends HttpServlet {
         String bankAccount = req.getParameter("bank_account");
         String avatar = req.getParameter("avatarPath");
 
-        
-
 //        
 //        User userSignUp = new User(0, username, password, email, city, province, address, name, "donor", null, phoneNumber, dob, bankAccount, null);
         Account accountSignUp = new Account(0, username, password, 3, null);
@@ -184,7 +200,7 @@ public class UserSignUpController extends HttpServlet {
             req.setAttribute("error", "Your OTP is incorrect");
             req.getRequestDispatcher("confirmEmailRegis.jsp").forward(req, resp);
         }
-        
+
         try {
 
 //                Encrypt password
@@ -240,5 +256,5 @@ public class UserSignUpController extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doDelete(req, resp); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
