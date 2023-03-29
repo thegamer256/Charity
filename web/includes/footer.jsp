@@ -26,11 +26,11 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-link">
                         <h2>Popular Links</h2>
-                        <a href="">About Us</a>
-                        <a href="">Contact Us</a>
-                        <a href="">Our Program</a>
-                        <a href="">Upcoming Events</a>
-                        <a href="">Latest News</a>
+                        <a href="about.jsp">About Us</a>
+                        <a href="contact">Contact Us</a>
+                        <a href="program?action=list">Our Program</a>
+                        <a href="">Programs' Operators</a>
+                        <a href="news?action=list">Latest News</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

@@ -33,7 +33,7 @@ public class DashBoardController extends HttpServlet {
     private final UserService userService = new UserService();
     private final DashBoardService dashBoardService = new DashBoardService();
     private final ContactService contactService = new ContactService();
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,21 +45,21 @@ public class DashBoardController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param req servlet request
-     * @param resp servlet response
+     * @param req
+     * @param resp
+     * @param request servlet request
+     * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
 
         switch (action) {
@@ -81,6 +81,8 @@ public class DashBoardController extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
+     * @param req
+     * @param resp
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -139,12 +141,12 @@ public class DashBoardController extends HttpServlet {
 
         req.getRequestDispatcher("dashboardUser.jsp").forward(req, resp);
     }
-    
+
     public void messageDashboard(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         List<ContactVO> listContact = contactService.getAllMessage();
         int managerCount = userService.getManagerNumber();
-        
+
         System.out.println(listContact);
 
         String urlHistory = "dashboard?action=contact";

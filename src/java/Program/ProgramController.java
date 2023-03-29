@@ -69,9 +69,11 @@ public class ProgramController extends HttpServlet {
                 req.setAttribute("action", "register");
                 req.getRequestDispatcher("program_register.jsp").forward(req, resp);
                 break;
-            case "update": 
+            case "update":
                 getProgramInformation(req, resp);
                 break;
+            case "closed":
+                getListProgramsClosed(req, resp);
             default:
                 break;
         }
@@ -93,7 +95,7 @@ public class ProgramController extends HttpServlet {
             case "open":
                 openProgram(req, resp);
                 break;
-            case "update": 
+            case "update":
                 handleUpdateProgram(req, resp);
                 break;
             default:
@@ -129,7 +131,6 @@ public class ProgramController extends HttpServlet {
 
     }
 
-    
     private void handleUpdateProgram(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO: retrieve account from session
         // Account account = (Account) session.getAttribute("user");
@@ -141,16 +142,14 @@ public class ProgramController extends HttpServlet {
         Program programToUpdate = service.getProgramById(updatedProgram.getProgramId());
         List<Part> programImgParts = (List<Part>) results.get(1);
         List<LocalDate> datesBetweenSche = (List<LocalDate>) results.get(2);
-        
-        if (
-            updatedProgram.getScheStartDate().equals(programToUpdate.getScheStartDate()) &&
-            updatedProgram.getScheEndDate().equals(programToUpdate.getScheEndDate())
-        ) {
+
+        if (updatedProgram.getScheStartDate().equals(programToUpdate.getScheStartDate())
+                && updatedProgram.getScheEndDate().equals(programToUpdate.getScheEndDate())) {
             List<Schedule> schedules = new ScheduleService().getSchedulesByProgramId(programId);
             req.setAttribute("state", false);
             req.setAttribute("schedules", schedules);
         }
-        
+
         String imageUploadPath = req.getServletContext().getRealPath("");
 
         service.updateProgram(updatedProgram, programImgParts, imageUploadPath);
@@ -159,18 +158,16 @@ public class ProgramController extends HttpServlet {
         req.setAttribute("programId", programId);
         req.setAttribute("programName", updatedProgram.getProgramName());
         req.setAttribute("action", "update");
-        
+
         req.getRequestDispatcher("schedule.jsp?programId=" + programId).forward(req, resp);
     }
-    
+
     private void getListPrograms(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final int PAGE_SIZE = 6;
 
         HttpSession session = req.getSession(false);
         String pageStr = req.getParameter("page");
         Map<String, String> conditions = getParametterCondition(req, resp);
-        
-        
 
         List<Program> listProgram = null;
         int totalProgram = service.getTotalProgram(conditions);
@@ -196,6 +193,39 @@ public class ProgramController extends HttpServlet {
         req.setAttribute("page", pageStr);
         req.setAttribute("pageNumber", pageNumber);
         req.getRequestDispatcher("programList.jsp").forward(req, resp);
+    }
+
+    private void getListProgramsClosed(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        final int PAGE_SIZE = 6;
+
+        HttpSession session = req.getSession(false);
+        String pageStr = req.getParameter("page");
+        Map<String, String> conditions = getParametterCondition(req, resp);
+
+        List<Program> listProgram = null;
+        int totalProgram = service.getTotalProgramClosed(conditions);
+        int pageNumber = (int) Math.floor(totalProgram / PAGE_SIZE) + (totalProgram % PAGE_SIZE > 0 ? 1 : 0);
+
+        if (pageStr != null) {
+            int page = Integer.parseInt(pageStr);
+            int beginElement = (page - 1) * PAGE_SIZE;
+            listProgram = service.getListProgramClosedWithCondition(beginElement, PAGE_SIZE, conditions);
+
+        } else {
+            pageStr = "1";
+            int beginElement = (Integer.parseInt(pageStr) - 1) * PAGE_SIZE;
+            listProgram = service.getListProgramClosedWithCondition(beginElement, PAGE_SIZE, conditions);
+        }
+
+        String urlHistory = "program?action=closed&page=" + pageStr;
+
+        session = req.getSession(true);
+        session.setAttribute("urlHistory", urlHistory);
+        req.setAttribute("listProgram", listProgram);
+        req.setAttribute("totalProgram", totalProgram);
+        req.setAttribute("page", pageStr);
+        req.setAttribute("pageNumber", pageNumber);
+        req.getRequestDispatcher("programListClosed.jsp").forward(req, resp);
     }
 
     private void getProgramInformation(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -224,16 +254,16 @@ public class ProgramController extends HttpServlet {
         req.setAttribute("author", acc);
         req.setAttribute("listDonate", listDonate);
         req.setAttribute("destination", program.getDestination());
-        
+
         req.setAttribute("program", program);
-        
+
         if (action.equals("detail")) {
             req.setAttribute("schedules", programSchedules);
             req.setAttribute("raisedAmount", raisedAmount);
             req.setAttribute("author", acc);
             req.setAttribute("listDonate", listDonate);
             req.setAttribute("investors", investors);
-            
+
             req.getRequestDispatcher("program.jsp").forward(req, resp);
         } else if (action.equals("update")) {
             req.setAttribute("action", action);
@@ -248,26 +278,24 @@ public class ProgramController extends HttpServlet {
         while (en.hasMoreElements()) {
             Object objOri = en.nextElement();
             String param = (String) objOri;
-            if(param.matches("^condition_(.*)$")) {
+            if (param.matches("^condition_(.*)$")) {
                 String value = req.getParameter(param);
                 conditionMap.put(param, value);
-                
-                if(value!=null) {
+
+                if (value != null) {
                     req.setAttribute(param, value);
                 }
             }
-            
+
         }
         return conditionMap;
     }
 
-
-    
     private List<Object> getProgramFromForm(HttpServletRequest req) throws ServletException, IOException {
         String programName = req.getParameter("programName");
         String shortDes = req.getParameter("shortDes");
         String detailDes = req.getParameter("detailDes");
-        double goalAmount = Double.parseDouble(req.getParameter("goalAmount"));
+        long goalAmount = Long.parseLong(req.getParameter("goalAmount"));
         String startDate = req.getParameter("startDate");
         String endDate = req.getParameter("endDate");
         String city = req.getParameter("city");
@@ -302,16 +330,15 @@ public class ProgramController extends HttpServlet {
         );
         Program.Destination programDestination = newProgram.new Destination(0, city, province, address);
         newProgram.setDestination(programDestination);
-        
+
         List<Object> results = new ArrayList();
-        
+
         results.add(newProgram);
         results.add(programImgParts);
         results.add(datesBetweenSche);
-        
+
         return results;
     }
-    
 
     private void handleRegisterProgram(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        Testing purpose only

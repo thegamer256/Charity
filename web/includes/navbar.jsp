@@ -22,11 +22,13 @@
                     <a href="home" class="nav-item nav-link">Home</a>
                     <a href="about.jsp" class="nav-item nav-link">About</a>
                     <a href="program?action=list" class="nav-item nav-link">Program</a>
+                    <c:if test="${sessionScope.user.role=='2'}">
+                        <a href="program?action=closed" class="nav-item nav-link">Closed Program</a>
+                    </c:if>
                     <a href="news?action=list" class="nav-item nav-link">News</a>
-
+                    
                     <c:if test="${sessionScope.user !=null}">
                         <a href="contact" class="nav-item nav-link">Contact</a>
-
                     </c:if>
                 </div>
 

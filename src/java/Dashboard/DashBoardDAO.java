@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * @author huynh
  */
 public class DashBoardDAO {
-    public double getTotal(String totalCase) {
+    public long getTotal(String totalCase) {
         try {
             Connection conn;
             PreparedStatement ps;
@@ -49,13 +49,13 @@ public class DashBoardDAO {
             while (rs.next()) {
                 switch (totalCase) {
                     case "today":
-                        return rs.getInt("totalToday");
+                        return rs.getLong("totalToday");
                     case "month":
-                        return rs.getInt("totalThisMonth");
+                        return rs.getLong("totalThisMonth");
                     case "all":
-                        return rs.getInt("total");
+                        return rs.getLong("total");
                     default:
-                        return rs.getInt("total");
+                        return rs.getLong("total");
                 }
 
             }
@@ -68,7 +68,7 @@ public class DashBoardDAO {
         return -1;
     }
 
-    public double getTotalGoal() {
+    public long getTotalGoal() {
         try {
             Connection conn;
             PreparedStatement ps;
@@ -82,14 +82,8 @@ public class DashBoardDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                if (rs.getDouble("total_goal") > (double) Integer.MAX_VALUE || rs.getDouble("total_goal") < (double) Integer.MIN_VALUE) {
-                    System.out.println("bigger");
-                    return 9999999;
-                } else {
-                    return rs.getDouble("total_goal");
-                }
+                    return rs.getLong("total_goal");            
             }
-
         } catch (SQLException ex) {
             Logger.getLogger(DashBoardDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -101,5 +95,6 @@ public class DashBoardDAO {
     public static void main(String[] args) {
         DashBoardDAO dao = new DashBoardDAO();
         System.out.println(dao.getTotalGoal());
+        System.out.println(dao.getTotal("all"));
     }
 }

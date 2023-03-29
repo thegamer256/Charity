@@ -19,7 +19,7 @@
         <div class="owl-carousel">
             <div class="carousel-item">
                 <div class="carousel-img">
-                    <img src="img/carousel-1.jpg" alt="Image">
+                    <img src="img/carousel-1.png" alt="Image">
                 </div>
                 <div class="carousel-text">
                     <h1>Let's be kind for children</h1>
@@ -43,7 +43,7 @@
             </div>
             <div class="carousel-item">
                 <div class="carousel-img">
-                    <img src="img/carousel-3.jpg" alt="Image">
+                    <img src="img/carousel-3.png" alt="Image">
                 </div>
                 <div class="carousel-text">
                     <h1>Bringing smiles to millions</h1>
@@ -202,7 +202,7 @@
 <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <div class="facts-item">
                     <i class="flaticon-home"></i>
                     <div class="facts-text">
@@ -211,15 +211,13 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6">
+            
+            <div class="col-lg-5 col-md-6">
                 <div class="facts-item">
                     <i class="flaticon-kindness"></i>
                     <div class="facts-text">
                         <h3 class="facts-dollar" data-toggle="counter-up">
-
-                            <fmt:formatNumber type = "number" value = "${totalGoal}" /> "đ"
-
+                            <fmt:formatNumber type = "number" groupingUsed = "false" value = "${totalGoal}"/>
                         </h3>
                         <p>Our Goal</p>
                     </div>
@@ -230,7 +228,7 @@
                     <i class="flaticon-donation"></i>
                     <div class="facts-text">
                         <h3 class="facts-dollar" data-toggle="counter-up">
-                            <fmt:formatNumber type = "number" value = "${totalRaised}" />
+                            <fmt:formatNumber type = "number" groupingUsed = "false" value = "${totalRaised}"/>
                         </h3>
                         <p>Raised</p>
                     </div>

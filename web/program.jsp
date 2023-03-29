@@ -81,16 +81,7 @@
                     <i class="flaticon-kindness"></i>
                     <div class="facts-text">
                         <h3 class="facts-dollar" data-toggle="counter-up">
-                            <c:choose>
-                                <c:when test="${program.goalAmount > 9999999}">
-                                    999999+
-                                </c:when>
-                                <c:otherwise>
-                                    <fmt:formatNumber type = "number" 
-                                                      groupingUsed = "false" value = "${program.goalAmount}" />
-                                </c:otherwise>
-                            </c:choose>
-
+                            <fmt:formatNumber type = "number" groupingUsed = "false" value = "${program.goalAmount}" />
                         </h3>
                         <p>Our Goal</p>
                     </div>
@@ -101,9 +92,7 @@
                     <i class="flaticon-donation"></i>
                     <div class="facts-text">
                         <h3 class="facts-dollar" data-toggle="counter-up">
-
-                            <fmt:formatNumber type = "number" 
-                                              groupingUsed = "false" value = "${raisedAmount}" />
+                            <fmt:formatNumber type = "number" groupingUsed = "false" value = "${raisedAmount}" />
                         </h3>
                         <p>Raised</p>
                     </div>
@@ -453,64 +442,64 @@
 
 <!-- Footer Start -->
 <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-contact">
-                        <h2>Our Head Office</h2>
-                        <p><i class="fa fa-map-marker-alt"></i>aaa Street, Da Nang, Viet Nam</p>
-                        <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope"></i>FV@gmail.com</p>
-                        <div class="footer-social">
-                            <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-link">
-                        <h2>Popular Links</h2>
-                        <a href="">About Us</a>
-                        <a href="">Contact Us</a>
-                        <a href="">Our Program</a>
-                        <a href="">Upcoming Events</a>
-                        <a href="">Latest News</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-link">
-                        <h2>Useful Links</h2>
-                        <a href="">Terms of use</a>
-                        <a href="">Privacy policy</a>
-                        <a href="">Cookies</a>
-                        <a href="">Help</a>
-                        <a href="">FQAs</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-newsletter">
-                        <h2>Newsletter</h2>
-                        <form>
-                            <input class="form-control" placeholder="Email goes here">
-                            <button class="btn btn-custom">Submit</button>
-                            <label>Don't worry, we don't spam!</label>
-                        </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-contact">
+                    <h2>Our Head Office</h2>
+                    <p><i class="fa fa-map-marker-alt"></i>aaa Street, Da Nang, Viet Nam</p>
+                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope"></i>FV@gmail.com</p>
+                    <div class="footer-social">
+                        <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container copyright">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>&copy; <a href="#">FantasticV</a>, All Right Reserved.</p>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-link">
+                    <h2>Popular Links</h2>
+                    <a href="">About Us</a>
+                    <a href="">Contact Us</a>
+                    <a href="">Our Program</a>
+                    <a href="">Upcoming Events</a>
+                    <a href="">Latest News</a>
                 </div>
-                
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-link">
+                    <h2>Useful Links</h2>
+                    <a href="">Terms of use</a>
+                    <a href="">Privacy policy</a>
+                    <a href="">Cookies</a>
+                    <a href="">Help</a>
+                    <a href="">FQAs</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-newsletter">
+                    <h2>Newsletter</h2>
+                    <form>
+                        <input class="form-control" placeholder="Email goes here">
+                        <button class="btn btn-custom">Submit</button>
+                        <label>Don't worry, we don't spam!</label>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+    <div class="container copyright">
+        <div class="row">
+            <div class="col-md-12">
+                <p>&copy; <a href="#">FantasticV</a>, All Right Reserved.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
 <!-- Footer End -->
 
 <!-- Back to top button -->
