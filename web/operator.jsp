@@ -13,7 +13,7 @@
             <div data-schedule-date="investor" class="operator-form form-group-invest" style="display: none;">
                 <div style="display: flex; justify-content: space-between; align-items: center">
                     <h2 class="text-light "style="display: inline-block">Operator for Program</h2>
-                    <button style="margin: 0!important" type="button" id="del-form-btn" class="mt-5 btn btn-danger">Delete investor</button>
+                    <button style="margin: 0!important" type="button" id="del-form-btn" class="mt-5 btn btn-danger">Delete operator</button>
                 </div>
                 <div class="form-group">
                     <label for="operatorDate">Operator Date</label>
@@ -113,7 +113,7 @@
                 <input type="hidden" id="operator-days" name="operator-days" value="${operators.size() > 0 ? operators.size()  : 1 }">
                 <input type="hidden" value="${programId}" name="programId" />
 
-                <button type="button" class="mt-5 btn btn-primary" onclick="addRow()">Add investor</button>
+                <button type="button" class="mt-5 btn btn-primary" onclick="addRow()">Add operator</button>
                 <button type="submit" id="submit-button" class="mt-5 btn btn-primary container-fluid">Submit</button>
             </form>
         </main>

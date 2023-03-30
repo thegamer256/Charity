@@ -24,7 +24,7 @@ public class DBContext {
 
         Properties props = new Properties();
         try {
-            InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("./Properties/charity.properties");
+            InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("./properties/charity.properties");
             props.load(is);
         } catch (IOException e) {
             // handle the exception

@@ -327,7 +327,8 @@
                                     <h3>Bills</h3>
                                     <p>
                                         Total actual Expense here is: 
-                                        <span style="font-size: 5em">${item.actualExpense}$</span>
+                                        <br>
+                                        <span style="font-size: 1.5em">${item.actualExpense} VND</span>
                                     </p>
 
                                 </div>

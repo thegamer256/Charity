@@ -1042,8 +1042,8 @@ a:focus {
 }
 
 .facts .facts-text h3.facts-dollar::after {
-    content: "đ";
-    right: -18px;
+    content: "VND";
+    right:-60px;
 }
 
 .facts .facts-text p {

@@ -75,7 +75,22 @@
 <!-- Facts Start -->
 <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
     <div class="container">
-
+        <div class="row">
+            <div class="col-12">
+                <div class="facts-item">
+                    <div class="facts-text" style="display: flex;justify-content: center;text-align: center;flex-direction: column">
+                        <h1 style="color: #FDBE33;font-weight: bold;font-size: 3.5rem;">FantasticV Organization</h1>
+                        <br>
+                        <p>
+                            "Charity in Vietnam plays an important role in addressing the country's social and economic challenges. 
+                            From providing support to underprivileged communities to disaster relief efforts, various non-governmental 
+                            organizations and individuals actively participate in charitable activities. However, there are still significant 
+                            disparities in access to resources, and more efforts are needed to ensure equal opportunities for all."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- Facts End -->

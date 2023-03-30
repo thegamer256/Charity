@@ -98,16 +98,6 @@
                         </div>
                     </div>
 
-                    <div class="sidebar-widget">
-                        <div class="image-widget">
-                            <a href="#"><img src="img/blog-1.jpg" alt="Image"></a>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget">
-                        <div class="image-widget">
-                            <a href="#"><img src="img/blog-2.jpg" alt="Image"></a>
-                        </div>
-                    </div>
 
 
 

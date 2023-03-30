@@ -54,7 +54,15 @@
                                 <form method="POST" id="delete-news-${item.newsId}" action="news-manage?action=delete&newsId=${item.newsId}" style="padding-left: 2em">
                                     <p onclick="document.getElementById(`delete-news-${item.newsId}`).submit()">
                                         <i class="fa fa-times"></i>
-                                        <a onclick="document.getElementById(`delete-news-${item.newsId}`).submit()">Delete News</a>
+                                        <a 
+                                            style="cursor: pointer;"
+                                            onmouseover="this.style.color = '#FDBE33';"
+                                            onmouseout="this.style.color='#4a4c70';"
+                                            onclick="document.getElementById('delete-news-${item.newsId}').submit();"
+                                            >
+                                            Delete News
+                                        </a>
+
                                     </p>
                                 </form>
 
