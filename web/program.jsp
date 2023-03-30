@@ -343,6 +343,48 @@
 
 <!-- Event End -->
 
+<!-- INVESTOR Start -->
+<div class="causes">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Investor</p>
+            <h2>Investor Foundation</h2>
+        </div>
+            <div class="container">
+                <c:forEach var="item" items="${investors}" varStatus="itemStatus">
+                    <div class="testimonial-item">
+                        <div style="display: flex;align-items: flex-start;justify-content: center;">
+                            <img style="height: 20rem; width: 20rem; margin-right: 1rem" src="${item.investorImg}" alt="Image">
+                            <div>
+                                <h4>${item.investorName}</h4>
+                                <h5>Legal Represent: ${item.legalRepresent}</h5>
+                                <h5>Contact: ${item.contact}</h5>
+                                <div class="testimonial-text">
+                                    <p>
+                                        ${item.investorDes}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+                <div class="testimonial">
+                    <div class="container">
+                        <div class="owl-carousel testimonials-carousel">
+                            <c:forEach var="item" items="${investors}">
+                                <div class="testimonial-item">
+                                        <img src="${item.qualifyImg}" alt="Image">
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<!-- INVESTOR End -->
+
+
 
 <!-- Team Start -->
 <div class="team">
