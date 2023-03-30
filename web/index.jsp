@@ -305,7 +305,6 @@
                                         <div class="owl-carousel-item"> 
                                             <div class="carousel-img">
                                                 <img src="${activity.path}" alt="Image" style="height: 360px; width: 100%">
-                                                <!--<img src="img/event-1.jpg" alt="Image">-->
                                             </div>
                                         </div>
                                     </c:forEach>
