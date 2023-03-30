@@ -211,7 +211,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-5 col-md-6">
                 <div class="facts-item">
                     <i class="flaticon-kindness"></i>
@@ -422,37 +422,6 @@
 </div>
 <!-- Team End -->
 
-<!-- Testimonial Start -->
-<div class="testimonial">
-    <div class="container">
-        <div class="section-header text-center">
-            <p>Encouragement</p>
-            <h2>What people are talking about our charity program</h2>
-        </div>
-        <div class="owl-carousel testimonials-carousel">
-                <c:forEach var="item" items="${donations}">
-                    <div class="testimonial-item">
-                        <div class="testimonial-profile">
-                            <img src="${item.avatar}" alt="Image">
-                            <div class="testimonial-name">
-                                <h3>${item.name}</h3>
-                                <p>${item.donate_date}</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p>
-                                ${item.message}
-                            </p>
-
-                        </div> 
-                    </div>                
-                </c:forEach>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Testimonial End -->
-
 <!-- Blog Start -->
 <div class="blog">
     <div class="container">
@@ -482,7 +451,14 @@
                                 <form method="POST" id="delete-news-${item.newsId}" action="news-manage?action=delete&newsId=${item.newsId}" style="padding-left: 2em">
                                     <p onclick="document.getElementById(`delete-news-${item.newsId}`).submit()">
                                         <i class="fa fa-times"></i>
-                                        <a onclick="document.getElementById(`delete-news-${item.newsId}`).submit()">Delete News</a>
+                                        <a 
+                                            style="cursor: pointer;"
+                                            onmouseover="this.style.color = '#FDBE33';"
+                                            onmouseout="this.style.color = '#4a4c70';"
+                                            onclick="document.getElementById('delete-news-${item.newsId}').submit();"
+                                            >
+                                            Delete News
+                                        </a>
                                     </p>
                                 </form>
 
