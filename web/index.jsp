@@ -18,8 +18,8 @@
     <div class="container-fluid">
         <div class="owl-carousel">
             <div class="carousel-item">
-                <div class="carousel-img">
-                    <img src="img/carousel-1.png" alt="Image">
+                <div class="carousel-img" style="height: 39rem">
+                    <img src="img/carousel-1.jpg" alt="Image">
                 </div>
                 <div class="carousel-text">
                     <h1>Let's be kind for children</h1>
@@ -29,8 +29,8 @@
                     </p>
                 </div>
             </div>
-            <div class="carousel-item">
-                <div class="carousel-img">
+            <div class="carousel-item" >
+                <div class="carousel-img" style="height: 39rem">
                     <img src="img/carousel-2.jpg" alt="Image">
                 </div>
                 <div class="carousel-text">
@@ -42,8 +42,8 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="carousel-img">
-                    <img src="img/carousel-3.png" alt="Image">
+                <div class="carousel-img" style="height: 39rem">
+                    <img src="img/carousel-3.jpg" alt="Image">
                 </div>
                 <div class="carousel-text">
                     <h1>Bringing smiles to millions</h1>
@@ -206,8 +206,8 @@
                 <div class="facts-item">
                     <i class="flaticon-home"></i>
                     <div class="facts-text">
-                        <h3 class="facts-plus" data-toggle="counter-up">150</h3>
-                        <p>Countries</p>
+                        <h3 class="facts-plus" data-toggle="counter-up">35</h3>
+                        <p>Provinces</p>
                     </div>
                 </div>
             </div>
