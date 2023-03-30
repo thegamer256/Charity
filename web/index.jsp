@@ -260,8 +260,8 @@
                             </div>
                         </div>
                         <div class="progress-text">
-                            <p><strong>Raised:</strong> $${(item.raisedAmount)}</p>
-                            <p><strong>Goal:</strong>$${(item.goalAmount)}</p>
+                            <p><strong>Raised:</strong> ${(item.raisedAmount)} VND</p>
+                            <p><strong>Goal:</strong>${(item.goalAmount)} VND</p>
                         </div>
                     </div>
                     <div class="causes-text" style="height: 6em">

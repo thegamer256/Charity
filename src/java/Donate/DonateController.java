@@ -10,6 +10,7 @@ import User.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,7 @@ import shared.SendMail;
  *
  * @author LE ANH TUAN
  */
+@WebServlet(name = "DonateController", urlPatterns = {"/donate"})
 public class DonateController extends HttpServlet {
 
     private final DonateService service = new DonateService();
@@ -141,7 +143,7 @@ public class DonateController extends HttpServlet {
             session.setAttribute("otp", otp);
 
             try {
-                SendMail.sendConfirmEmail("success", emailAccount, "CONFIRM DONATING", "We receive a request that you donate " + amount + " dollars for the project " + programName + " pllease confirm it by the OTP", "Thanks for being a part of us", otp);
+                SendMail.sendConfirmEmail("success", emailAccount, "CONFIRM DONATING", "We receive a request that you donate " + amount + " VND for the project " + programName + " pllease confirm it by the OTP", "Thanks for being a part of us", otp);
 
             } catch (Exception e) {
                 resp.sendRedirect("failedPage.jsp");

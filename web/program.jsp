@@ -190,9 +190,9 @@
                     </div>
                     <div class="donate-text">
                         <p>
-                            Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare
-                            velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl
-                            nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                            Please help those in need by donating to charity. 
+                            Your generosity can make a huge difference in someone's life. 
+                            Together, we can create positive change and make the world a better place.
                         </p>
                     </div>
                 </div>
@@ -353,7 +353,7 @@
         </div>
         <!-- TODO: Program Creator information -->
         <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="team-item">
                     <div class="team-img">
                         <img src="${author.avatar}" alt="Team Image">
@@ -362,9 +362,7 @@
                         <h2>${author.name}</h2>
                         <p>${author.role == 1 ? 'Admin' : 'Manager'} of Fantastic V</p>
                         <div class="team-social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
                             <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
                             <a href=""><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
@@ -374,36 +372,6 @@
     </div>
 </div>
 <!-- Team End -->
-
-<!-- Testimonial Start -->
-<div class="testimonial">
-    <div class="container">
-        <div class="section-header text-center">
-            <p>Testimonial</p>
-            <h2>What people are talking about our charity activities</h2>
-        </div>
-        <div class="owl-carousel testimonials-carousel">
-            <c:forEach var="item" items="${investors}">
-                <div class="testimonial-item">
-                    <div class="testimonial-profile">
-                        <img src="${item.investorImg}" alt="Image">
-                        <div class="testimonial-name">
-                            <h3>${item.investorName}</h3>
-                            <p>Represent: ${item.legalRepresent}</p>
-                            <p>Contact: ${item.contact}</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        <p>
-                            ${item.investorDes}
-                        </p>
-                    </div>
-                </div>
-            </c:forEach>
-        </div>
-    </div>
-</div>
-<!-- Testimonial End -->
 
 <!-- Blog Start -->
 <div class="container">
@@ -429,7 +397,7 @@
                     <tr key={key}>
                         <td class="font-weight-bold">${donateNo}</td>
                         <td class="font-weight-bold"><a href="user?userId=${item.userId}">${item.name}</a> </td>
-                        <td>${item.amount}$</td>
+                        <td>${item.amount} VND</td>
                         <td class="font-weight-bold" colspan="3">${item.message}</td>
                         <td>${item.donate_date}</td>
                     </tr>
