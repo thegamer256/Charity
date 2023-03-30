@@ -35,7 +35,7 @@ public class OperatorDAO {
                 ps.setInt(1, operator.getProgramId());
                 ps.setString(2, operator.getOperatorDate());
                 ps.setString(3, operator.getOperatorDetailDes());
-                ps.setDouble(4, operator.getActualExpense());
+                ps.setLong(4, operator.getActualExpense());
                 ps.addBatch();
             }
 
@@ -97,7 +97,7 @@ public class OperatorDAO {
                 int operatorId = rs.getInt("operator_id");
                 String operatorDate = rs.getString("operator_date");
                 String detailDes = rs.getString("operator_detail_des");
-                double actualExpense = rs.getDouble("actual_expense");
+                long actualExpense = rs.getLong("actual_expense");
                 Operator operator = Operator.builder()
                         .operatorId(operatorId)
                         .programId(programId)
@@ -143,7 +143,7 @@ public class OperatorDAO {
                 int programId = rs.getInt("program_id");
                 String operatorDate = rs.getString("operator_date");
                 String detailDes = rs.getString("operator_detail_des");
-                double actualExpense = rs.getDouble("actual_expense");
+                long actualExpense = rs.getLong("actual_expense");
                 String city = rs.getString("city");
                 String province = rs.getString("province");
                 String address = rs.getString("address");

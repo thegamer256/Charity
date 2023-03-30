@@ -16,7 +16,7 @@ public class Operator {
     private int programId;
     private String operatorDate;
     private String operatorDetailDes;
-    private double actualExpense;
+    private long actualExpense;
     private List<OperatorImage> activiesImgs;
     private List<OperatorImage> billImgs;
 

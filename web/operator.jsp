@@ -136,7 +136,13 @@
             }
         });
 
-
+        const deleteRowAddById = (index) => {
+            return (e) => {
+                i = i - 1;
+                $('#operator-days').val(i);
+                $("#operator-form-" + index).remove();
+            }
+        }
 
         let currentSizeForm = ${operators.size()};
         let i = (currentSizeForm === 0 ? 1 : currentSizeForm);
@@ -258,13 +264,13 @@
             $("#operator-form-" + index).remove();
         }
 
-        const deleteRowAddById = (index) => {
-            return (e) => {
-                i = i - 1;
-                $('#operator-days').val(i);
-                $("#operator-form-" + index).remove();
-            }
-        }
+        // const deleteRowAddById = (index) => {
+        //     return (e) => {
+        //         i = i - 1;
+        //         $('#operator-days').val(i);
+        //         $("#operator-form-" + index).remove();
+        //     }
+        // }
 
         function activitiesImgChange(index) {
             $("#investAvatar-preview-section").empty();

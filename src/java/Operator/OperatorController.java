@@ -111,7 +111,7 @@ public class OperatorController extends HttpServlet {
             String operatorDate = req.getParameter("operatorDate-" + (i + 1));
             String operatorDetailDes = req.getParameter("operatorDetailDes-" + (i + 1));
             String operatorId = req.getParameter("operatorId-" + (i + 1));
-            double actualExpense = Double.parseDouble(req.getParameter("actualExpense-" + (i + 1)));
+            long actualExpense = Long.parseLong(req.getParameter("actualExpense-" + (i + 1)));
             List<OperatorImage> activitiesImage = new ArrayList();
             List<OperatorImage> bilImage = new ArrayList();
 
