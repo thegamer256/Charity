@@ -24,7 +24,9 @@ public class InvestorService {
      public List<Investor> getListInvestorsByProgramId(int programId) {
          return dao.getListInvestorsByProgramId(programId);
      }
-     
+     public List<Investor> getListInvestors() {
+         return dao.getListInvestors();
+     }
      public String getInvestorImg(int investorId) {
          return dao.getInvestorImg(investorId);
      }
