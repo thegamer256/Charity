@@ -26,7 +26,7 @@
                     <div class="char-count"><span id="charCountDetail">0</span>/4000</div>
                 </div>
                 <div class="form-group">
-                    <label for="newsImgs">Program Images</label>
+                    <label for="newsImgs">News Images</label>
                     <input type="file" class="form-control-file" id="newsImgs" aria-describedby="newsImgs" placeholder="Add News' Images" name="newsImgs" accept="image/*" multiple required>
                 </div>
                 <div id="image-preview-section" class="row">

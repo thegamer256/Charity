@@ -166,7 +166,7 @@
                         <div class="causes-progress">
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="${(item.raisedAmount/item.goalAmount)*100}" aria-valuemin="0" aria-valuemax="100">
-                                    <span>${(item.raisedAmount/item.goalAmount)*100 > 100 ? 100 : (item.raisedAmount/item.goalAmount)*100}%</span>
+                                    <span style="right: -2em">${Math.floor(((item.raisedAmount/item.goalAmount)*100)*100)/100}%</span>
                                 </div>
                             </div>
                             <div class="progress-text">

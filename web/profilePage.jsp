@@ -54,8 +54,8 @@
                 <ul class="list-group">
                     <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
                     <li class="list-group-item text-left"><span class="pull-left"><strong>Program contributed: </strong></span> ${numberProgramContribute}</li>
-                    <li class="list-group-item text-left"><span class="pull-left"><strong>Donate this month: </strong></span> ${totalDonateThisMonth}</li>
-                    <li class="list-group-item text-left"><span class="pull-left"><strong>Donate total:</strong></span> ${totalDonate}</li>
+                    <li class="list-group-item text-left"><span class="pull-left"><strong>Donate this month: </strong></span> ${totalDonateThisMonth} VND</li>
+                    <li class="list-group-item text-left"><span class="pull-left"><strong>Donate total:</strong></span> ${totalDonate} VND</li>
                 </ul> 
 
 
@@ -168,7 +168,7 @@
                                             <tr key={key}>
                                                 <td class="font-weight-bold">${donateNo}</td>
                                                 <td class="font-weight-bold" colspan="2"><a href="program?action=detail&programId=${item.program_id}&isClosed=${item.isProgramClosed}">${item.programName}</a></td>
-                                                <td>${item.amount} $</td>
+                                                <td>${item.amount} VND</td>
                                                 <td class="font-weight-bold" colspan="3">${item.donate_date}</td>
                                                 <td>${item.message}</td>
                                                 <c:set var = "donateNo" value="${donateNo+1}" />
