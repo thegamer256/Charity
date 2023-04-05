@@ -14,6 +14,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @author LE ANH TUAN
+ */
 
 public class OperatorDAO {
 
@@ -250,9 +254,6 @@ public class OperatorDAO {
         OperatorDAO dao = new OperatorDAO();
         List<Operator> operators = new ArrayList<>();
 
-//        operators.add(new Operator(0, 2143, "2023-11-11", "Desadwjoawidj awijd aow", 2000, null, null));
-//        operators.add(new Operator(0, 2143, "2023-11-12", "Desadwjoawidj awijd aow", 2000, null, null));
-//        operators.add(new Operator(0, 2143, "2023-11-13", "Desadwjoawidj awijd aow", 2000, null, null));
         String[] id = {"123", "125", "126"};
 
         System.out.println(dao.getQueryNotIn(id));
