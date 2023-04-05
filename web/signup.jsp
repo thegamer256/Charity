@@ -52,14 +52,14 @@
                                 <input type="date" id="date" class="form-control" name="dob" placeholder="Date of birth" value="${userSignUp.getDob()}">
                             </div>
                             <div class="control-group">
-                                <input type="text" name="city" list="cityName"placeholder="Your City" class="form-control" value="${userSignUp.getCity()}">
+                                <input type="text" name="city" list="cityName"placeholder="Your Province" class="form-control" value="${userSignUp.getCity()}">
                                 <datalist id="cityName">
                                     <option value="Boston">
                                     <option value="Cambridge">
                                 </datalist>
                             </div>
                             <div class="control-group">
-                                <input type="text" name="province" list="provincename"placeholder="Your Province" class="form-control" value="${userSignUp.getProvince()}">
+                                <input type="text" name="province" list="provincename"placeholder="Your District" class="form-control" value="${userSignUp.getProvince()}">
                                 <datalist id="provincename">
                                     <option value="Boston">
                                     <option value="Cambridge">
@@ -78,11 +78,6 @@
 
                                 <img id="output" style="height: 100%; width: 12em"  />
                             </div>
-
-                            <!--                            <div class="control-group">
-                                                            <input type="checkbox" id="rememberme" class="">
-                                                            <label for="rememberme" class="remember" style="color: white">Remember me</label><br>
-                                                        </div>-->
                             <div>
                                 <button class="btn btn-custom" type="submit">Sign Up</button>
                             </div>

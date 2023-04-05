@@ -126,7 +126,6 @@ public class DonateController extends HttpServlet {
         String programId = req.getParameter("programId");
         String programName = req.getParameter("programName");
         String emailAccount = userService.getEmailByAccountID(account.getAccountId());
-//        String urlHistory = (String) session.getAttribute("urlHistory");
 
         int currentWalletAmount = service.getWalletAmount(account.getAccountId());
         session = req.getSession(true);

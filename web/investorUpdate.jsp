@@ -19,7 +19,6 @@
             <div data-schedule-date="investor" class="investor-form form-group-invest" style="display: none;">
                 <div style="display: flex; justify-content: space-between; align-items: center">
                     <h2 class="text-light "style="display: inline-block">Investor for Program</h2>
-                    <button style="margin: 0!important" type="button" id="del-form-btn" class="mt-5 btn btn-danger">Delete investor</button>
                 </div>
                 <div class="form-group">
                     <label for="investorName">Investor name</label>
@@ -82,8 +81,6 @@
 
                 <input type="hidden" id="investor-number" name="investor-number" value="${listInvestor.size()}">
                 <input type="hidden" value="${param.programId}" name="programId" />
-                <button type="button" class="mt-5 btn btn-primary" onclick="addRow()">Add investor</button>
-
                 <button type="submit" id="submit-button" class="mt-5 btn btn-primary container-fluid">Submit</button>
             </form>
         </main>
@@ -159,88 +156,6 @@
 
                     investAvatarEl.onchange = onFileInputChange(investAvatarPreviewEl);
                     qualifyImgEl.onchange = onFileInputChange(qualifyImgPreviewEl);
-
-                    function addRow() {
-                        var investorForm = $('.investor-form').clone();
-                        investorForm.css('display', 'block');
-                        investorForm.attr("id", "investor-form-" + (i + 1));
-                        investorForm.removeClass('investor-form');
-                        investorForm.find('#investorName').attr('name', 'investorName-' + (i + 1));
-                        investorForm.find('#legalRepresent').attr('name', 'legalRepresent-' + (i + 1));
-                        investorForm.find('#investorDes').attr('name', 'investorDes-' + (i + 1));
-                        investorForm.find('#del-form-btn').attr({
-                            name: 'del-form-btn-' + (i + 1),
-                            id: 'del-form-btn-' + (i + 1)
-                        });
-                        investorForm.find('#investAvatar').attr({
-                            name: 'investAvatar-' + (i + 1),
-                            id: 'investAvatar-' + (i + 1)
-                        });
-                        investorForm.find('#qualifyImg').attr({
-                            name: 'qualifyImg-' + (i + 1),
-                            id: `qualifyImg-` + (i + 1)
-                        });
-                        investorForm.find('#contact').attr('name', 'contact-' + (i + 1));
-                        const newImageAvatarPreviewEl = document.createElement('div');
-                        newImageAvatarPreviewEl.classList.add('row');
-                        newImageAvatarPreviewEl.id = `investAvatar-preview-section-${i + 2}`;
-
-                        const newQualifyImgPreviewEl = document.createElement('div');
-                        newQualifyImgPreviewEl.classList.add('row');
-                        newQualifyImgPreviewEl.id = `qualifyImg-preview-section-${i + 2}`;
-
-                        $('#investor-form-' + i).after(investorForm);
-
-                        investorForm.find(`#investAvatar-` + (i + 1)).after(newImageAvatarPreviewEl);
-                        investorForm.find(`#qualifyImg-` + (i + 1)).after(newQualifyImgPreviewEl);
-
-                        investorForm.find(`#investAvatar-` + (i + 1)).on('change', onFileInputChange(newImageAvatarPreviewEl));
-                        investorForm.find(`#qualifyImg-` + (i + 1)).on('change', onFileInputChange(newQualifyImgPreviewEl));
-
-                        document.querySelector("#del-form-btn-" + (i + 1)).addEventListener("click", deleteRowAddById(i + 1));
-                        i++;
-                        $('#investor-number').val(i);
-                    }
-
-                    function deleteRow() {
-                        var investFormGroup = $('#form').find('.form-group-invest');
-                        if (investFormGroup.length > 1) {
-                            investFormGroup.last().remove();
-                            i--;
-                            $('#investor-number').val(i);
-                        }
-                    }
-
-                    function deleteRowById(index) {
-                        console.log(index);
-                        isFormChanged = true;
-                        operatorIdDel = $("#investorId-" + index).val();
-                        var hiddenElement = document.createElement("input");
-                        hiddenElement.setAttribute("type", "hidden");
-                        hiddenElement.setAttribute("name", "investorIdDel");
-                        hiddenElement.setAttribute("id", "investorIdDel");
-                        hiddenElement.setAttribute("value", operatorIdDel);
-
-                        var hiddenElementIndex = document.createElement("input");
-                        hiddenElementIndex.setAttribute("type", "hidden");
-                        hiddenElementIndex.setAttribute("name", "investorIdDelIndex");
-                        hiddenElementIndex.setAttribute("id", "investorIdDelIndex");
-                        hiddenElementIndex.setAttribute("value", index);
-
-                        $("#investor-number").after(hiddenElement);
-                        $("#investor-number").after(hiddenElementIndex);
-                        i = i - 1;
-                        $('#investor-number').val(i);
-                        $("#investor-form-" + index).remove();
-                    }
-
-                    const deleteRowAddById = (index) => {
-                        return (e) => {
-                            i = i - 1;
-                            $('#investor-number').val(i);
-                            $("#investor-form-" + index).remove();
-                        }
-                    }
 
                     function formChange(index) {
                         console.log('aaaaaa');

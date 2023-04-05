@@ -20,7 +20,6 @@ public class SendMail {
     static Session loginGetSession() {
         
         final String username = "lanhtuan200@gmail.com";
-//        final String password = "xpdtqogzdwvfopez";        
         final String password = "iatsybahtmugrakn";
 
 
@@ -230,10 +229,8 @@ public class SendMail {
                     + "</body>";
             message.setContent(content, "text/html");
 
-//            for (int i = 0; i < 100; i++) {
             Transport.send(message);
 
-//            }
             System.out.println("Done");
             
             return true;

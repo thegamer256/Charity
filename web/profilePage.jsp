@@ -107,15 +107,15 @@
                             <div class="form-group">
 
                                 <div class="col-xs-6">
-                                    <label for="city"><h4>City</h4></label>
-                                    <input type="text" class="form-control" name="city" value="${account.city}" id="city" placeholder="Your city" title="enter your City." ${((account.accountId != sessionScope.user.accountId) && (sessionScope.user.role != 1)) ? 'disabled' : ''}>
+                                    <label for="city"><h4>Province</h4></label>
+                                    <input type="text" class="form-control" name="city" value="${account.city}" id="city" placeholder="Your Province" title="enter your City." ${((account.accountId != sessionScope.user.accountId) && (sessionScope.user.role != 1)) ? 'disabled' : ''}>
                                 </div>
                             </div>
                             <div class="form-group">
 
                                 <div class="col-xs-6">
-                                    <label for="province"><h4>Province</h4></label>
-                                    <input type="text" class="form-control" id="province" value="${account.province}" name="province" placeholder="Province" title="enter a location" ${((account.accountId != sessionScope.user.accountId) && (sessionScope.user.role != 1)) ? 'disabled' : ''}>
+                                    <label for="province"><h4>District</h4></label>
+                                    <input type="text" class="form-control" id="province" value="${account.province}" name="province" placeholder="Your District" title="enter a location" ${((account.accountId != sessionScope.user.accountId) && (sessionScope.user.role != 1)) ? 'disabled' : ''}>
                                 </div>
                             </div>
                             <div class="form-group">

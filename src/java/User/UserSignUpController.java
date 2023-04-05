@@ -226,7 +226,6 @@ public class UserSignUpController extends HttpServlet {
 
     }
 
-//    protected void confirmRegisUser() 
     /**
      * Handles the HTTP <code>POST</code> method.
      *

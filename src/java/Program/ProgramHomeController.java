@@ -58,8 +58,8 @@ public class ProgramHomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
-        List<Program> listPrograms = service.getListProgram(1, 6);
-        List<News> getListNews = newsService.getListNews(1, 3);
+        List<Program> listPrograms = service.getListProgram(0, 6);
+        List<News> getListNews = newsService.getListNews(0, 3);
         List<OperatorVO> operators = operatorService.getOperatorsHome();
         List<Investor> investors = investorService.getListInvestors();
         long totalRaised = dashBoardService.getTotal("all");
@@ -75,7 +75,7 @@ public class ProgramHomeController extends HttpServlet {
         req.setAttribute("investors", investors);
         req.setAttribute("operators", operators);
         req.setAttribute("totalRaised", totalRaised);
-         req.setAttribute("totalGoal", totalGoal);
+        req.setAttribute("totalGoal", totalGoal);
         req.setAttribute("listPrograms", listPrograms);
         req.setAttribute("getListNews", getListNews);
         req.getRequestDispatcher("index.jsp").forward(req, resp);

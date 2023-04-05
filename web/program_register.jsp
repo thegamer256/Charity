@@ -97,26 +97,26 @@
                 </div>
                 <div class="form-row mb-3">
                      <div class="col">
-                         <label for="city">City</label>
+                         <label for="city">Province</label>
                          <input 
                              type="text" 
                              class="form-control" 
                              id="city"
                              aria-describedby="city" 
-                             placeholder="Enter City"
+                             placeholder="Enter Province"
                              name="city"
                              required
                              value="${program.destination.city}"
                          >
                      </div>
                      <div class="col">
-                         <label for="province">Province</label>
+                         <label for="province">District</label>
                          <input 
                              type="text" 
                              class="form-control" 
                              id="province"
                              aria-describedby="province" 
-                             placeholder="Enter city"
+                             placeholder="Enter District"
                              name="province"
                              required
                              value="${program.destination.province}"
