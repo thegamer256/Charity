@@ -52,6 +52,34 @@ public class InvestorDAO {
             Logger.getLogger(InvestorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public List<Investor> getListInvestors() {
+
+        try {
+            Connection conn;
+            PreparedStatement ps;
+            ResultSet rs;
+
+            String query = "select * from investor";
+            conn = new DBContext().getConnection();
+
+            ps = conn.prepareStatement(query);
+
+            rs = ps.executeQuery();
+
+            List<Investor> listInvestors = new ArrayList<>();
+            while (rs.next()) {
+                Investor programID = new Investor(rs.getInt("investor_id"), rs.getInt("program_id"), rs.getString("investor_name"), rs.getString("investor_img"), rs.getString("investor_des"), rs.getString("contact"), rs.getString("qualify_img"), rs.getString("legal_represent"));
+
+                listInvestors.add(programID);
+            }
+            return listInvestors;
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(NewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public List<Investor> getListInvestorsByProgramId(int programId) {
 
@@ -165,8 +193,8 @@ public class InvestorDAO {
     
     public static void main(String[] args) {
         InvestorDAO dao = new InvestorDAO();
-        
-        System.out.println(dao.getListInvestorsByProgramId(2143));
+        System.out.print(dao.getListInvestors());
+
     }
 }
 

@@ -6,6 +6,8 @@
 package Program;
 
 import Dashboard.DashBoardService;
+import Investor.Investor;
+import Investor.InvestorService;
 import News.News;
 import News.NewsService;
 import Operator.Operator;
@@ -27,6 +29,7 @@ public class ProgramHomeController extends HttpServlet {
     private final NewsService newsService = new NewsService();
     private final OperatorService operatorService = new OperatorService();
     private final DashBoardService dashBoardService = new DashBoardService();
+    private final InvestorService investorService = new InvestorService();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -58,6 +61,7 @@ public class ProgramHomeController extends HttpServlet {
         List<Program> listPrograms = service.getListProgram(1, 6);
         List<News> getListNews = newsService.getListNews(1, 3);
         List<OperatorVO> operators = operatorService.getOperatorsHome();
+        List<Investor> investors = investorService.getListInvestors();
         long totalRaised = dashBoardService.getTotal("all");
         long totalGoal = dashBoardService.getTotalGoal();
 
@@ -68,6 +72,7 @@ public class ProgramHomeController extends HttpServlet {
         session = req.getSession(true);
         session.setAttribute("urlHistory", urlHistory);
 
+        req.setAttribute("investors", investors);
         req.setAttribute("operators", operators);
         req.setAttribute("totalRaised", totalRaised);
          req.setAttribute("totalGoal", totalGoal);
